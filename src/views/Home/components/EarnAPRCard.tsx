@@ -51,7 +51,7 @@ const EarnAPRCard = () => {
         <Heading color="contrast" size="lg">
           Earn up to
         </Heading>
-        <CardMidContent color="#1b78f2">
+        <CardMidContent color="#e84142">
           {highestApr ? (
             `${highestApr}% ${TranslateString(736, 'APR')}`
           ) : (
@@ -63,7 +63,7 @@ const EarnAPRCard = () => {
             in Farms
           </Heading>
           <NavLink exact activeClassName="active" to="/farms" id="farm-apr-cta">
-            <ArrowForwardIcon mt={30} color="#1b78f2" />
+            <ArrowForwardIcon mt={30} color="#e84142" />
           </NavLink>
         </Flex>
       </CardBody>

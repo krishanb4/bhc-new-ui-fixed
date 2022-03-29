@@ -24,7 +24,7 @@ const ExpandableSectionButton: React.FC<ExpandableSectionButtonProps> = ({ onCli
 const ExpandButton = styled(Button)`
   font-weight: 600;
   font-size: 20px;
-  color: #1b78f2;
+  color: #e84142;
   text-transform: capitalize;
   display: flex;
   margin: 0 auto;

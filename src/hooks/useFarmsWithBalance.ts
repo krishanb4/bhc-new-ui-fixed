@@ -25,6 +25,7 @@ const useFarmsWithBalance = () => {
       //   params: [farm.pid, account],
       // }))
 
+      // const rawResults = await multicall(masterChefABI, calls)
       const rawResults = await multicall(masterChefABI, [])
       const results = farmsConfig.map((farm, index) => ({ ...farm, balance: new BigNumber(rawResults[index]) }))
 

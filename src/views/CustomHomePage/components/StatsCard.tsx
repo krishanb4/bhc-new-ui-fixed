@@ -36,7 +36,7 @@ const FarmedStakingCard = () => {
           <CardStatLabel>{TranslateString(544, 'USD Market Cap')}</CardStatLabel>
           <CardStatValue>
             $
-            {Number(window.prices['0x7BEB05cf5681f402E762F8569c2Fc138a2172978'] * 50000)
+            {Number(window.prices['0xa8752333f6a6fe47323a4eDAC3D09Bb1048A0E23'] * 50000)
               .toFixed(2)
               .toString()
               .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}

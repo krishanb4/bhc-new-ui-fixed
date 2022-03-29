@@ -4,6 +4,7 @@ import { Box } from '@mui/system'
 import Page from 'components/layout/Page'
 import { useParams } from 'react-router-dom'
 
+
 const videos = [
   { id: '1', title: 'QUICK TOUR', link: 'https://www.youtube.com/embed/83CzJ-VqhCk' },
   { id: '2', title: 'What is BILLION HAPPINESS?', link: 'https://www.youtube.com/embed/7J6251H24PI' },
@@ -55,7 +56,7 @@ const HeroTitle = styled.h1`
   font-weight: 600;
   font-size: 50px;
   line-height: 1.2;
-  color: #1b78f2;
+  color: #e84142;
   margin-top: 0;
   margin-bottom: 10px;
   @media only screen and (min-width: 768px) {

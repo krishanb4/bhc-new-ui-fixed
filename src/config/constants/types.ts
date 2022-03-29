@@ -3,7 +3,7 @@ import { TranslatableText } from 'state/types'
 export interface Address {
   97?: string
   56?: string
-  250?: string
+  43114?: string
 }
 
 export interface Token {

@@ -16,14 +16,14 @@ export const setupNetwork = async () => {
         params: [
           {
             chainId: `0x${chainId.toString(16)}`,
-            chainName: 'Fantom Opera',
+            chainName: 'Avalanche MAinnet C-Chain',
             nativeCurrency: {
-              name: 'FTM',
-              symbol: 'ftm',
+              name: 'AVAX',
+              symbol: 'avax',
               decimals: 18,
             },
             rpcUrls: nodes,
-            blockExplorerUrls: ['https://ftmscan.com/'],
+            blockExplorerUrls: ['https://snowtrace.io/'],
           },
         ],
       })

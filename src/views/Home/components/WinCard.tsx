@@ -26,7 +26,7 @@ const WinCard = () => {
         <Heading color="contrast" size="lg">
           Lottery with
         </Heading>
-        <CardMidContent color="#1b78f2">
+        <CardMidContent color="#e84142">
           {lotteryPrize !== 0 ? (
             `$${lotteryPrize.toLocaleString()}`
           ) : (
@@ -38,7 +38,7 @@ const WinCard = () => {
             up for grabs
           </Heading>
           <NavLink exact activeClassName="active" to="/lottery" id="lottery-pot-cta">
-            <ArrowForwardIcon mt={30} color="#1b78f2" />
+            <ArrowForwardIcon mt={30} color="#e84142" />
           </NavLink>
         </Flex>
       </CardBody>

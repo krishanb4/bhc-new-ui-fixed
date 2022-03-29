@@ -7,50 +7,50 @@ import Page from 'components/layout/Page'
 
 const exchangeCards = [
   {
-    img: 'probit.png',
-    link: 'https://www.probit.com/app/exchange/BHC-USDT',
-    name: 'BHC',
-  },
-  {
-    img: 'pancakeswap.png',
-    link: 'https://pancakeswap.finance/swap?inputCurrency=0x6fd7c98458a943f469e1cf4ea85b173f5cd342f4',
+    img: 'hakulogo.png',
+    link: 'https://exchange.hakuswap.com/#/swap?inputCurrency=0xa8752333f6a6fe47323a4edac3d09bb1048a0e23',
     name: 'BHC & HPS',
   },
-  {
-    img: 'apeswap.svg',
-    link: 'https://app.apeswap.finance/swap',
-    name: 'BHC & HPS',
-  },
-  {
-    img: 'cafe.png',
-    link: 'https://dex.cafeswap.finance/#/swap?inputCurrency=0x6fd7c98458a943f469e1cf4ea85b173f5cd342f4',
-    name: 'BHC & HPS',
-  },
-  {
-    img: 'hyperswap.png',
-    link: 'https://swap.hyperjump.fi/#/swap?inputCurrency=0x6fd7c98458a943f469e1cf4ea85b173f5cd342f4',
-    name: 'BHC & HPS',
-  },
-  {
-    img: '1inch.svg',
-    link: 'https://1inch.exchange/#/BHC/BNB?network=56',
-    name: 'BHC & HPS',
-  },
-  {
-    img: 'launchzoneswapx.svg',
-    link: 'https://swapx.launchzone.org/#/',
-    name: 'BHC',
-  },
-  {
-    img: 'hotbit.png',
-    link: 'https://www.hotbit.io/exchange?symbol=BHC_USDT',
-    name: 'BHC',
-  },
-  {
-    img: 'new_jetswap.png',
-    link: 'https://exchange.jetswap.finance/#/swap?inputCurrency=0x6fd7c98458a943f469e1cf4ea85b173f5cd342f4',
-    name: 'BHC',
-  },
+  // {
+  //   img: 'pancakeswap.png',
+  //   link: 'https://pancakeswap.finance/swap?inputCurrency=0x6fd7c98458a943f469e1cf4ea85b173f5cd342f4',
+  //   name: 'BHC & HPS',
+  // },
+  // {
+  //   img: 'apeswap.svg',
+  //   link: 'https://app.apeswap.finance/swap',
+  //   name: 'BHC & HPS',
+  // },
+  // {
+  //   img: 'cafe.png',
+  //   link: 'https://dex.cafeswap.finance/#/swap?inputCurrency=0x6fd7c98458a943f469e1cf4ea85b173f5cd342f4',
+  //   name: 'BHC & HPS',
+  // },
+  // {
+  //   img: 'hyperswap.png',
+  //   link: 'https://swap.hyperjump.fi/#/swap?inputCurrency=0x6fd7c98458a943f469e1cf4ea85b173f5cd342f4',
+  //   name: 'BHC & HPS',
+  // },
+  // {
+  //   img: '1inch.svg',
+  //   link: 'https://1inch.exchange/#/BHC/BNB?network=56',
+  //   name: 'BHC & HPS',
+  // },
+  // {
+  //   img: 'launchzoneswapx.svg',
+  //   link: 'https://swapx.launchzone.org/#/',
+  //   name: 'BHC',
+  // },
+  // {
+  //   img: 'hotbit.png',
+  //   link: 'https://www.hotbit.io/exchange?symbol=BHC_USDT',
+  //   name: 'BHC',
+  // },
+  // {
+  //   img: 'new_jetswap.png',
+  //   link: 'https://exchange.jetswap.finance/#/swap?inputCurrency=0x6fd7c98458a943f469e1cf4ea85b173f5cd342f4',
+  //   name: 'BHC',
+  // },
 ]
 
 const Exchanges = () => {
@@ -98,7 +98,7 @@ const HeroTitle = styled.h1`
   font-weight: 600;
   font-size: 50px;
   line-height: 1.2;
-  color: #1b78f2;
+  color: #e84142;
   margin-top: 0;
   margin-bottom: 10px;
 

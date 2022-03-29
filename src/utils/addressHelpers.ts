@@ -3,14 +3,11 @@ import tokens from 'config/constants/tokens'
 import { Address } from 'config/constants/types'
 
 export const getAddress = (address: Address): string => {
-  const mainNetChainId = 250
+  const mainNetChainId = 43114
   const chainId = process.env.REACT_APP_CHAIN_ID
   return address[chainId] ? address[chainId] : address[mainNetChainId]
 }
 
-// export const getCakeAddress = () => {
-//   return getAddress(tokens.cake.address)
-// }
 export const getCakeAddress = () => {
   return getAddress(tokens.bhc.address)
 }
@@ -21,7 +18,7 @@ export const getMulticallAddress = () => {
   return getAddress(addresses.mulltiCall)
 }
 export const getWbnbAddress = () => {
-  return getAddress(tokens.wftm.address)
+  return getAddress(tokens.wavax.address)
 }
 export const getLotteryAddress = () => {
   return getAddress(addresses.lottery)

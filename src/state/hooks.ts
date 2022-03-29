@@ -12,7 +12,6 @@ import { getBalanceNumber } from 'utils/formatBalance'
 import useRefresh from 'hooks/useRefresh'
 import {
   fetchFarmsPublicDataAsync,
-  fetchPoolsPublicDataAsync,
   fetchPoolsUserDataAsync,
   push as pushToast,
   remove as removeToast,
@@ -32,24 +31,22 @@ export const useFetchPublicData = () => {
   const { slowRefresh } = useRefresh()
   useEffect(() => {
     dispatch(fetchFarmsPublicDataAsync())
-    // dispatch(fetchTokenPrices())
-    fetch('https://bsctools.xyz/bhc/api/bhc_lp_calc.php')
+    fetch('https://bsctools.xyz/bhc/api/bhc_lp_calc_avax.php')
       .then((res) => res.text())
       .then((body) => {
-        fetch('https://bsctools.xyz/bhc/api/bhc_price_ftm.php')
+        fetch('https://bsctools.xyz/bhc/api/bhc_price_avax.php')
           .then((res1) => res1.text())
           .then((body1) => {
             window.prices = {
-              '0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83': JSON.parse(body1).ftm, // WFTM
-              '0x7BEB05cf5681f402E762F8569c2Fc138a2172978': JSON.parse(body1).bhc, // BHC
-              '0xAC1F25AEE575D35C668B0a4D336f20E3e92adCd2': JSON.parse(body1).hps, // HPS
-              '0x20951B5cEC16815FE160e7a1453a94912AfD31B2': 0, // BHC-FTM JetSwap LP
-              '0xa42DE2C3847b96894D44E8A8258A838FAaD9dD5f': 0, // HPS-FTM SpiritSwap LP
+              '0xa8752333f6a6fe47323a4eDAC3D09Bb1048A0E23': JSON.parse(body1).bhc, // BHC
+              '0x695Fa794d59106cEbd40ab5f5cA19F458c723829': JSON.parse(body1).haku, // HAKU
+              '0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7': JSON.parse(body1).avax, // AVAX
+              '0x014C13e4e734b90cDe56f96F42E7227Fc2b2e86E': JSON.parse(body).bhcavax_one_lp_value, // haku lp bhc-avax
             }
           })
       })
 
-    //   //  dispatch(fetchPoolsPublicDataAsync())
+    //  dispatch(fetchPoolsPublicDataAsync())
   }, [dispatch, slowRefresh])
 
   useEffect(() => {
@@ -242,29 +239,13 @@ export const useGetApiPrice = (address: string) => {
 }
 
 export const usePriceCakeBusd = (): BigNumber => {
-  const ZERO = new BigNumber(0)
-  // const cakeBnbFarm = useFarmFromPid(1)
-  // const bnbBusdFarm = useFarmFromPid(2)
-
-  // const bnbBusdPrice = bnbBusdFarm.tokenPriceVsQuote ? new BigNumber(1).div(bnbBusdFarm.tokenPriceVsQuote) : ZERO
-  // const cakeBusdPrice = cakeBnbFarm.tokenPriceVsQuote ? bnbBusdPrice.times(cakeBnbFarm.tokenPriceVsQuote) : ZERO
-
-  // return new BigNumber(123.458)
-  return new BigNumber(window.prices['0x7BEB05cf5681f402E762F8569c2Fc138a2172978'])
+  return new BigNumber(window.prices['0xa8752333f6a6fe47323a4eDAC3D09Bb1048A0E23'])
 }
 
-// Block
 export const useBlock = () => {
   return useSelector((state: State) => state.block)
 }
 
 export const useInitialBlock = () => {
   return useSelector((state: State) => state.block.initialBlock)
-}
-
-export const usePrice = (address) => {
-  return useSelector((state: State) => {
-    
-  //  return state.pricesBHC.data.find((t) => t.address[250] === address).price_in_usd
-  })
 }

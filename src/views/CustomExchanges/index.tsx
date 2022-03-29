@@ -7,11 +7,12 @@ import Page from 'components/layout/Page'
 import styled from 'styled-components'
 import inch from './images/inch.png'
 import julswap from './images/apeswap.png'
+import hakuswap from './images/hakulogo.png'
 import bitmart from './images/bitmart.png'
 import hotbit from './images/hotbit.png'
 import mexc from './images/mexc-global.png'
 import jetswap from './images/new_jetswap.png'
-import spirit from './images/spirit.png'
+import pancakeswap from './images/pancakeswap.png'
 import probit from './images/probit.png'
 
 const CustomExchanges = () => {
@@ -29,25 +30,37 @@ const CustomExchanges = () => {
             <LogoCardButton
               onClick={() =>
                 window.open(
-                  'https://swap.spiritswap.finance/#/exchange/swap/FTM/HPS',
+                  'https://exchange.hakuswap.com/#/swap?inputCurrency=0xa8752333f6a6fe47323a4edac3d09bb1048a0e23',
                   '_blank',
                 )
               }
             >
-              <img src={spirit} alt="pancakeswap" />
+              <img src={hakuswap} alt="hakuswap" />
             </LogoCardButton>
-
+            {/* 
             <LogoCardButton
               onClick={() =>
                 window.open(
-                  'https://fantom-exchange.jetswap.finance/#/swap?inputCurrency=0x7beb05cf5681f402e762f8569c2fc138a2172978',
+                  'https://apeswap.finance/swap?outputCurrency=0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4',
+                  '_blank',
+                )
+              }
+            >
+              <img src={julswap} alt="apeswap" />
+            </LogoCardButton>
+            <LogoCardButton onClick={() => window.open('https://app.1inch.io/#/56/classic/swap/BNB/BHC', '_blank')}>
+              <img src={inch} alt="1inch" />
+            </LogoCardButton>
+            <LogoCardButton
+              onClick={() =>
+                window.open(
+                  'https://exchange.jetswap.finance/#/swap?outputCurrency=0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4',
                   '_blank',
                 )
               }
             >
               <img src={jetswap} alt="jetswap" />
-            </LogoCardButton>
-
+            </LogoCardButton> */}
           </ExchangeCard>
         </Grid>
         <Grid item xs={12} sm={6} md={6}>
@@ -166,7 +179,7 @@ const ExchangeCardFooter = styled.div`
   border-top: 3px solid #707070;
   padding-top: 10px;
   font-size: 25px;
-  color: #1b78f2;
+  color: #e84142;
   font-weight: 600;
   text-align: center;
 `

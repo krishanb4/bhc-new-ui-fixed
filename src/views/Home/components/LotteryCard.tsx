@@ -34,7 +34,7 @@ const CardImage = styled.img`
 
 const Label = styled.div`
   color: ${({ theme }) => theme.colors.textSubtle};
-  color: #1b78f2;
+  color: #e84142;
   font-size: 14px;
 `
 
@@ -74,7 +74,7 @@ const LotteryCard = () => {
   const renderLotteryTicketButtonBuyOrApprove = () => {
     if (!allowance.toNumber()) {
       return (
-        <Button style={{ color: "white", background: "#1b78f2" }} width="100%" disabled={requestedApproval} onClick={handleApprove}>
+        <Button style={{ color: "white", background: "#e84142" }} width="100%" disabled={requestedApproval} onClick={handleApprove}>
           {TranslateString(494, 'Approve CAKE')}
         </Button>
       )
@@ -91,7 +91,7 @@ const LotteryCard = () => {
   return (
     <StyledLotteryCard>
       <CardBody>
-        <Heading color="#1b78f2" size="xl" mb="24px">
+        <Heading color="#e84142" size="xl" mb="24px">
           {TranslateString(550, 'Your Lottery Winnings')}
         </Heading>
         <CardImage src="/images/ticket.svg" alt="cake logo" width={64} height={64} />

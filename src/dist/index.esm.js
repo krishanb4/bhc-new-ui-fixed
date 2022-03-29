@@ -6886,8 +6886,8 @@ var AccountModal = function(_a) {
         React.createElement(
             Flex, { mb: '32px' },
             React.createElement(
-                LinkExternal, { small: true, href: 'https://ftmscan.com/address/' + account, mr: '16px' },
-                'View on FtmScan',
+                LinkExternal, { small: true, href: 'https://snowtrace.io/address/' + account, mr: '16px' },
+                'View on snowtrace',
             ),
             React.createElement(CopyToClipboard, { toCopy: account }, 'Copy Address'),
         ),

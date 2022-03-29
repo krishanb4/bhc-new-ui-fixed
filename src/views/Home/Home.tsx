@@ -85,10 +85,10 @@ const Home: React.FC = () => {
       {/* <LeadInBanner /> */}
       <Page>
         <Hero>
-          <Heading as="h1" size="xl" mb="24px" color="#1b78f2">
+          <Heading as="h1" size="xl" mb="24px" color="#e84142">
             {TranslateString(576, 'Billion Happiness Community')}
           </Heading>
-          <Text color="#1b78f2">
+          <Text color="#e84142">
             {TranslateString(
               578,
               'Billion Happiness is a blockchain community-based project for Defi, Yield Farming, Staking and NFT Marketplace.',

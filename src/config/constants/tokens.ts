@@ -1,5 +1,4 @@
 const tokens = {
-  
   bnb: {
     symbol: 'BNB',
     projectLink: 'https://www.binance.com/',
@@ -9,7 +8,7 @@ const tokens = {
     address: {
       56: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
       97: '0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe',
-      250: '0x7BEB05cf5681f402E762F8569c2Fc138a2172978',
+      43114: '0xa8752333f6a6fe47323a4eDAC3D09Bb1048A0E23',
     },
     decimals: 18,
     projectLink: 'https://pancakeswap.finance/',
@@ -1117,7 +1116,7 @@ const tokens = {
     address: {
       56: '0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4',
       97: '',
-      250: '0x7BEB05cf5681f402E762F8569c2Fc138a2172978',
+      43114: '0xa8752333f6a6fe47323a4eDAC3D09Bb1048A0E23',
     },
     decimals: 18,
     projectLink: '',
@@ -1127,7 +1126,6 @@ const tokens = {
     address: {
       56: '0xeDa21B525Ac789EaB1a08ef2404dd8505FfB973D',
       97: '',
-      250: '0xAC1F25AEE575D35C668B0a4D336f20E3e92adCd2',
     },
     decimals: 18,
     projectLink: '',
@@ -1222,29 +1220,77 @@ const tokens = {
     decimals: 18,
     projectLink: '',
   },
-  wftm: {
-    symbol: 'wFTM',
+  cate: {
+    symbol: 'CATE',
     address: {
-      250: '0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83',
+      56: '0xE4FAE3Faa8300810C835970b9187c268f55D998F',
+      97: '',
     },
     decimals: 18,
-    projectLink: '#',
+    projectLink: '',
   },
-  bhc_ftm_jlp: {
-    symbol: 'JLP',
+  doge: {
+    symbol: 'MONI',
     address: {
-      250: '0x20951B5cEC16815FE160e7a1453a94912AfD31B2',
+      56: '0xbA2aE424d960c26247Dd6c32edC70B295c744C43',
+      97: '',
     },
     decimals: 18,
-    projectLink: '#',
+    projectLink: '',
   },
-  hps_ftm_slp: {
-    symbol: 'SLP',
+  srkb: {
+    symbol: 'SRKb',
     address: {
-      250: '0xa42DE2C3847b96894D44E8A8258A838FAaD9dD5f',
+      56: '0xC3440c10c4F36f354eB591B19FafB4906d449B75',
+      97: '',
     },
     decimals: 18,
-    projectLink: '#',
+    projectLink: '',
+  },
+  sfuel: {
+    symbol: 'SFUEL',
+    address: {
+      56: '0x37Ac4D6140e54304D77437A5c11924f61a2D976f',
+      97: '',
+    },
+    decimals: 18,
+    projectLink: '',
+  },
+  gmr: {
+    symbol: 'GMR',
+    address: {
+      56: '0xADCa52302e0a6c2d5D68EDCdB4Ac75DeB5466884',
+      97: '',
+    },
+    decimals: 18,
+    projectLink: '',
+  },
+  cure: {
+    symbol: 'CURE',
+    address: {
+      56: '0x76aECB353AbF596BD61EE6BDb07d70787DeC4FD6',
+      97: '',
+    },
+    decimals: 9,
+    projectLink: '',
+  },
+  haku: {
+    symbol: 'HAKU',
+    address: {
+      43114: '0x695Fa794d59106cEbd40ab5f5cA19F458c723829',
+      97: '',
+    },
+    decimals: 18,
+    projectLink: '',
+  },
+  wavax: {
+    symbol: 'WAVAX',
+    address: {
+      43114: '0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7',
+      97: '',
+    },
+    decimals: 18,
+    projectLink: '',
   },
 }
 

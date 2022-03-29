@@ -95,7 +95,7 @@ const HeroTitle = styled.h1`
   font-weight: 600;
   font-size: 50px;
   line-height: 1.2;
-  color: #1b78f2;
+  color: #e84142;
   margin-top: 0;
   margin-bottom: 10px;
   @media only screen and (min-width: 768px) {
@@ -125,7 +125,7 @@ const InfoCard = styled(Box)`
 
 const InfoCardPara = styled.p`
   font-size: 25px;
-  color: #1b78f2;
+  color: #e84142;
   margin: 0;
   & + p {
     margin-top: 40px;
