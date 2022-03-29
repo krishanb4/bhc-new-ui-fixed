@@ -30,11 +30,16 @@ const Learn: React.FC = () => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             title={video?.title ?? ''}
+            style={DisplayStyle}
           />
         </div>
       </InfoCard>
     </Page>
   )
+}
+
+const DisplayStyle = {
+  display: 'block',
 }
 
 const Hero = styled.div`
