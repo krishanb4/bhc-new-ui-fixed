@@ -26,7 +26,7 @@ const ChainCard = ({ title, link }) => {
         variant="tertiary"
         style={{
           justifyContent: 'space-between',
-          border: '3px solid #fa8123',
+          border: '3px solid #1b78f2',
           padding: '45px 32px',
           width: '100%',
           marginBottom: 20,
@@ -39,10 +39,10 @@ const ChainCard = ({ title, link }) => {
           <img src="images/bsc.png" alt="bsc logo" style={priceImagesStyle} />
         ) : ('')}
         {title === 'Fantom' ? (
-          <img src="images/ftm.png" alt="ftm logo" style={priceImagesStyle} />
+          <img src="images/ftm.png" alt="bsc logo" style={priceImagesStyle} />
         ) : ('')}
         {title === 'Avalanche' ? (
-          <img src="images/avx.png" alt="avx logo" style={priceImagesStyle} />) : ('')}
+          <img src="images/avx.png" alt="ftm logo" style={priceImagesStyle} />) : ('')}
       </PButton>
     </a>
   )
@@ -51,11 +51,11 @@ const ChainCard = ({ title, link }) => {
 const chains = [
   {
     title: 'BSC',
-    link: '#',
+    link: 'https://billionhappiness.finance',
   },
   {
     title: 'Fantom',
-    link: 'https://fantom.billionhappiness.finance',
+    link: '#',
   },
   {
     title: 'Avalanche',
@@ -93,7 +93,7 @@ const Menu = (props) => {
         account={account}
         extraButtons={[
           <PButton onClick={() => onPresent()} scale="sm">
-            BSC
+            Fantom
           </PButton>,
         ]}
         menuButton={

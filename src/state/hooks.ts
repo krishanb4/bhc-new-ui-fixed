@@ -12,6 +12,7 @@ import { getBalanceNumber } from 'utils/formatBalance'
 import useRefresh from 'hooks/useRefresh'
 import {
   fetchFarmsPublicDataAsync,
+  fetchPoolsPublicDataAsync,
   fetchPoolsUserDataAsync,
   push as pushToast,
   remove as removeToast,
@@ -31,43 +32,24 @@ export const useFetchPublicData = () => {
   const { slowRefresh } = useRefresh()
   useEffect(() => {
     dispatch(fetchFarmsPublicDataAsync())
+    // dispatch(fetchTokenPrices())
     fetch('https://bsctools.xyz/bhc/api/bhc_lp_calc.php')
       .then((res) => res.text())
       .then((body) => {
-        fetch('https://bsctools.xyz/bhc/api/bhc_price.php')
+        fetch('https://bsctools.xyz/bhc/api/bhc_price_ftm.php')
           .then((res1) => res1.text())
           .then((body1) => {
             window.prices = {
-              '0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4': JSON.parse(body1).bhc_pancakeswap,
-              '0xeDa21B525Ac789EaB1a08ef2404dd8505FfB973D': JSON.parse(body1).pcs_hps,
-              '0xcaC3b7DE7D5c44E8E1048241C7dE29a61b5C3E7d': JSON.parse(body).juls_hpsbnb_one_lp_value,
-              '0x3EE2200Efb3400fAbB9AacF31297cBdD1d435D47': JSON.parse(body1).ada,
-              '0x4437743ac02957068995c48E08465E0EE1769fBE': JSON.parse(body1).fts,
-              '0x790Be81C3cA0e53974bE2688cDb954732C9862e1': JSON.parse(body1).brew,
-              '0x715d400f88c167884bbcc41c5fea407ed4d2f8a0': JSON.parse(body1).axs,
-              '0x08ba0619b1e7A582E0BCe5BBE9843322C954C340': JSON.parse(body1).bmon,
-              '0xfb62ae373aca027177d1c18ee0862817f9080d08': JSON.parse(body1).dpet,
-              '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c': JSON.parse(body1).bnb,
-              '0x9573c88aE3e37508f87649f87c4dd5373C9F31e0': JSON.parse(body1).moni,
-              '0x851db01b337ee3e5ab161ad04356816f09ea01dc': JSON.parse(body).bhc_pancakeswapbnb_one_lp_value,
-              '0xd46E7f33f8788f87D6017074dC4e4d781D3df91E': JSON.parse(body).bhc_streetswapbnb_one_lp_value,
-              '0x219686EA455297aa6A052c0d41CEfa0c4784549E': JSON.parse(body).pcs_hpsbnb_one_lp_value,
-              '0xe9e7cea3dedca5984780bafc599bd69add087d56': 1,
-
-              '0xE4FAE3Faa8300810C835970b9187c268f55D998F': JSON.parse(body1).cate,
-              '0xbA2aE424d960c26247Dd6c32edC70B295c744C43': JSON.parse(body1).doge,
-              '0x1d2f0da169ceb9fc7b3144628db156f3f6c60dbe': JSON.parse(body1).xrp,
-              '0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c': JSON.parse(body1).btc,
-              '0xC3440c10c4F36f354eB591B19FafB4906d449B75': JSON.parse(body1).srkb, // SRKb
-              '0x37Ac4D6140e54304D77437A5c11924f61a2D976f': JSON.parse(body1).sfuel, // SFUEL
-              '0xADCa52302e0a6c2d5D68EDCdB4Ac75DeB5466884': JSON.parse(body1).gmr, // GMR
-              '0x76aECB353AbF596BD61EE6BDb07d70787DeC4FD6': JSON.parse(body1).cure, // CURE
-              '0xa19d3f4219e2ed6dc1cb595db20f70b8b6866734': JSON.parse(body1).wirtual, //  WIRTUAL'
+              '0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83': JSON.parse(body1).ftm, // WFTM
+              '0x7BEB05cf5681f402E762F8569c2Fc138a2172978': JSON.parse(body1).bhc, // BHC
+              '0xAC1F25AEE575D35C668B0a4D336f20E3e92adCd2': JSON.parse(body1).hps, // HPS
+              '0x20951B5cEC16815FE160e7a1453a94912AfD31B2': 0, // BHC-FTM JetSwap LP
+              '0xa42DE2C3847b96894D44E8A8258A838FAaD9dD5f': 0, // HPS-FTM SpiritSwap LP
             }
           })
       })
 
-    //  dispatch(fetchPoolsPublicDataAsync())
+    //   //  dispatch(fetchPoolsPublicDataAsync())
   }, [dispatch, slowRefresh])
 
   useEffect(() => {
@@ -90,10 +72,8 @@ export const useFarms = (): Farm[] => {
 
 export const useFarmsTVL = (): number => {
   const farms = useSelector((state: State) => state.farms.data)
-
-  
   let tvl = 0
-  for (let i = 0; i < farms.length; i++) {    
+  for (let i = 0; i < farms.length; i++) {
     tvl += Number(Number(farms[i].tvlInUSD).toFixed(2))
   }
   return tvl
@@ -262,13 +242,29 @@ export const useGetApiPrice = (address: string) => {
 }
 
 export const usePriceCakeBusd = (): BigNumber => {
-  return new BigNumber(window.prices['0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4'])
+  const ZERO = new BigNumber(0)
+  // const cakeBnbFarm = useFarmFromPid(1)
+  // const bnbBusdFarm = useFarmFromPid(2)
+
+  // const bnbBusdPrice = bnbBusdFarm.tokenPriceVsQuote ? new BigNumber(1).div(bnbBusdFarm.tokenPriceVsQuote) : ZERO
+  // const cakeBusdPrice = cakeBnbFarm.tokenPriceVsQuote ? bnbBusdPrice.times(cakeBnbFarm.tokenPriceVsQuote) : ZERO
+
+  // return new BigNumber(123.458)
+  return new BigNumber(window.prices['0x7BEB05cf5681f402E762F8569c2Fc138a2172978'])
 }
 
+// Block
 export const useBlock = () => {
   return useSelector((state: State) => state.block)
 }
 
 export const useInitialBlock = () => {
   return useSelector((state: State) => state.block.initialBlock)
+}
+
+export const usePrice = (address) => {
+  return useSelector((state: State) => {
+    
+  //  return state.pricesBHC.data.find((t) => t.address[250] === address).price_in_usd
+  })
 }

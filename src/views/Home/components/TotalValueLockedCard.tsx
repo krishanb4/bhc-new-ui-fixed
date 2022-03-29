@@ -19,13 +19,13 @@ const TotalValueLockedCard = () => {
   return (
     <StyledTotalValueLockedCard>
       <CardBody>
-        <Heading color="#fa8123" size="lg" mb="24px">
+        <Heading color="#1b78f2" size="lg" mb="24px">
           {TranslateString(762, 'Total Value Locked (TVL)')}
         </Heading>
         {data ? (
           <>
-            <Heading color="#fa8123" size="xl">{`$${tvl}`}</Heading>
-            <Text color="#fa8123">{TranslateString(764, 'Across all LPs and Syrup Pools')}</Text>
+            <Heading color="#1b78f2" size="xl">{`$${tvl}`}</Heading>
+            <Text color="#1b78f2">{TranslateString(764, 'Across all LPs and Syrup Pools')}</Text>
           </>
         ) : (
           <Skeleton height={66} />

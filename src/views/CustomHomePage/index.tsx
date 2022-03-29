@@ -27,8 +27,8 @@ const style = {
   width: isMobile ? '100%' : '50%',
   height: isMobile ? '100%' : 'auto',
   boxShadow: 24,
-  border: '2px solid #fa8123',
-  backgroundColor: '#fa8123',
+  border: '2px solid #1b78f2',
+  backgroundColor: '#1b78f2',
   borderRadius: isMobile ? 0 : 10,
   p: 4,
 }

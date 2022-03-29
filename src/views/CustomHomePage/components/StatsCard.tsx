@@ -34,7 +34,13 @@ const FarmedStakingCard = () => {
       <StatCardContent>
         <CardStat>
           <CardStatLabel>{TranslateString(544, 'USD Market Cap')}</CardStatLabel>
-          <CardStatValue>${Number(window.prices['0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4'] * 50000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</CardStatValue>
+          <CardStatValue>
+            $
+            {Number(window.prices['0x7BEB05cf5681f402E762F8569c2Fc138a2172978'] * 50000)
+              .toFixed(2)
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+          </CardStatValue>
         </CardStat>
         <CardStat>
           <CardStatLabel>{TranslateString(544, 'BHC Total Supply')}</CardStatLabel>

@@ -11,7 +11,7 @@ import bitmart from './images/bitmart.png'
 import hotbit from './images/hotbit.png'
 import mexc from './images/mexc-global.png'
 import jetswap from './images/new_jetswap.png'
-import pancakeswap from './images/pancakeswap.png'
+import spirit from './images/spirit.png'
 import probit from './images/probit.png'
 
 const CustomExchanges = () => {
@@ -29,37 +29,25 @@ const CustomExchanges = () => {
             <LogoCardButton
               onClick={() =>
                 window.open(
-                  'https://swap.spiritswap.finance/#/swap/0xac1f25aee575d35c668b0a4d336f20e3e92adcd2',
+                  'https://swap.spiritswap.finance/#/exchange/swap/FTM/HPS',
                   '_blank',
                 )
               }
             >
-              <img src={pancakeswap} alt="pancakeswap" />
+              <img src={spirit} alt="pancakeswap" />
             </LogoCardButton>
 
             <LogoCardButton
               onClick={() =>
                 window.open(
-                  'https://apeswap.finance/swap?outputCurrency=0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4',
-                  '_blank',
-                )
-              }
-            >
-              <img src={julswap} alt="apeswap" />
-            </LogoCardButton>
-            <LogoCardButton onClick={() => window.open('https://app.1inch.io/#/56/classic/swap/BNB/BHC', '_blank')}>
-              <img src={inch} alt="1inch" />
-            </LogoCardButton>
-            <LogoCardButton
-              onClick={() =>
-                window.open(
-                  'https://exchange.jetswap.finance/#/swap?outputCurrency=0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4',
+                  'https://fantom-exchange.jetswap.finance/#/swap?inputCurrency=0x7beb05cf5681f402e762f8569c2fc138a2172978',
                   '_blank',
                 )
               }
             >
               <img src={jetswap} alt="jetswap" />
             </LogoCardButton>
+
           </ExchangeCard>
         </Grid>
         <Grid item xs={12} sm={6} md={6}>
@@ -178,7 +166,7 @@ const ExchangeCardFooter = styled.div`
   border-top: 3px solid #707070;
   padding-top: 10px;
   font-size: 25px;
-  color: #fa8123;
+  color: #1b78f2;
   font-weight: 600;
   text-align: center;
 `

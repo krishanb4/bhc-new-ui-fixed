@@ -5,10 +5,10 @@ const getDesignTokens = (mode: PaletteMode) => ({
   palette: {
     mode,
     primary: {
-      main: '#fa8123',
+      main: '#1b78f2',
       contrastText: '#000',
       ...(mode === 'dark' && {
-        main: '#fa8123',
+        main: '#1b78f2',
         contrastText: '#fff',
       }),
     },

@@ -85,7 +85,7 @@ const style = {
   height: isMobile ? '100%' : 'auto',
   boxShadow: 24,
   border: '2px solid #fa8123',
-  backgroundColor: '#fa8123',
+  backgroundColor: '#1b78f2',
   borderRadius: isMobile ? 0 : 10,
   p: 4,
 }
@@ -435,7 +435,7 @@ const DrawerComponent = styled(Drawer)`
     top: 64px;
     bottom: 0;
     border-radius: 0 20px 20px 0;
-    background-color: #fa8123;
+    background-color: #1b78f2;
     height: auto;
 
     .MuiBox-root {

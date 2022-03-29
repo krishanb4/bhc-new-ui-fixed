@@ -29,6 +29,7 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
     <Box sx={{ mb: 2 }}>
       <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <CardLabel>
+          {TranslateString(736, 'APR')}
           {TranslateString(354, 'TVL')}:
         </CardLabel>
         <CardLabel>{totalValueFormatted}</CardLabel>

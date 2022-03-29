@@ -1,13 +1,5 @@
 const tokens = {
-  wirtual: {
-    symbol: 'WIRTUAL',
-    address: {
-      56: '0xa19d3f4219e2ed6dc1cb595db20f70b8b6866734',
-      97: '',
-    },
-    decimals: 18,
-    projectLink: '',
-  },
+  
   bnb: {
     symbol: 'BNB',
     projectLink: 'https://www.binance.com/',
@@ -17,6 +9,7 @@ const tokens = {
     address: {
       56: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
       97: '0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe',
+      250: '0x7BEB05cf5681f402E762F8569c2Fc138a2172978',
     },
     decimals: 18,
     projectLink: 'https://pancakeswap.finance/',
@@ -1124,6 +1117,7 @@ const tokens = {
     address: {
       56: '0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4',
       97: '',
+      250: '0x7BEB05cf5681f402E762F8569c2Fc138a2172978',
     },
     decimals: 18,
     projectLink: '',
@@ -1133,6 +1127,7 @@ const tokens = {
     address: {
       56: '0xeDa21B525Ac789EaB1a08ef2404dd8505FfB973D',
       97: '',
+      250: '0xAC1F25AEE575D35C668B0a4D336f20E3e92adCd2',
     },
     decimals: 18,
     projectLink: '',
@@ -1227,59 +1222,29 @@ const tokens = {
     decimals: 18,
     projectLink: '',
   },
-  cate: {
-    symbol: 'CATE',
+  wftm: {
+    symbol: 'wFTM',
     address: {
-      56: '0xE4FAE3Faa8300810C835970b9187c268f55D998F',
-      97: '',
+      250: '0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83',
     },
     decimals: 18,
-    projectLink: '',
+    projectLink: '#',
   },
-  doge: {
-    symbol: 'MONI',
+  bhc_ftm_jlp: {
+    symbol: 'JLP',
     address: {
-      56: '0xbA2aE424d960c26247Dd6c32edC70B295c744C43',
-      97: '',
+      250: '0x20951B5cEC16815FE160e7a1453a94912AfD31B2',
     },
     decimals: 18,
-    projectLink: '',
+    projectLink: '#',
   },
-  srkb: {
-    symbol: 'SRKb',
+  hps_ftm_slp: {
+    symbol: 'SLP',
     address: {
-      56: '0xC3440c10c4F36f354eB591B19FafB4906d449B75',
-      97: '',
+      250: '0xa42DE2C3847b96894D44E8A8258A838FAaD9dD5f',
     },
     decimals: 18,
-    projectLink: '',
-  },
-  sfuel: {
-    symbol: 'SFUEL',
-    address: {
-      56: '0x37Ac4D6140e54304D77437A5c11924f61a2D976f',
-      97: '',
-    },
-    decimals: 18,
-    projectLink: '',
-  },
-  gmr: {
-    symbol: 'GMR',
-    address: {
-      56: '0xADCa52302e0a6c2d5D68EDCdB4Ac75DeB5466884',
-      97: '',
-    },
-    decimals: 18,
-    projectLink: '',
-  },
-  cure: {
-    symbol: 'CURE',
-    address: {
-      56: '0x76aECB353AbF596BD61EE6BDb07d70787DeC4FD6',
-      97: '',
-    },
-    decimals: 9,
-    projectLink: '',
+    projectLink: '#',
   },
 }
 

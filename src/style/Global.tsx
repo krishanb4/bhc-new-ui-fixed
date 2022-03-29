@@ -16,7 +16,6 @@ const GlobalStyle = createGlobalStyle`
   body iframe {
     display: none;
   }
-
 `
 
 export default GlobalStyle

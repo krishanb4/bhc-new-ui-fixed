@@ -30,16 +30,11 @@ const Learn: React.FC = () => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             title={video?.title ?? ''}
-            style={DisplayStyle}
           />
         </div>
       </InfoCard>
     </Page>
   )
-}
-
-const DisplayStyle = {
-  display: 'block',
 }
 
 const Hero = styled.div`
@@ -55,7 +50,7 @@ const HeroTitle = styled.h1`
   font-weight: 600;
   font-size: 50px;
   line-height: 1.2;
-  color: #fa8123;
+  color: #1b78f2;
   margin-top: 0;
   margin-bottom: 10px;
   @media only screen and (min-width: 768px) {
