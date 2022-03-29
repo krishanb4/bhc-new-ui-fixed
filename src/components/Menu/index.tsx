@@ -51,15 +51,15 @@ const ChainCard = ({ title, link }) => {
 const chains = [
   {
     title: 'BSC',
-    link: 'https://fantom.billionhappiness.finance',
+    link: 'https://billionhappiness.finance',
   },
   {
     title: 'Fantom',
-    link: '#',
+    link: 'https://fantom.billionhappiness.finance',
   },
   {
     title: 'Avalanche',
-    link: 'https://avalanche.billionhappiness.finance',
+    link: '#',
   },
 ]
 
