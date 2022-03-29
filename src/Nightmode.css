@@ -1,0 +1,196 @@
+::-webkit-scrollbar-thumb {
+    background: #fa8123 !important;
+}
+
+
+/* ################### NAVIGATION ################### */
+
+
+/* CONNECT BUTTON NAVBAR */
+
+.dhDVxu {
+    background-color: #fa8123 !important;
+    color: white !important;
+}
+
+.gsYCjw {
+    background-color: #fa8123 !important;
+}
+
+
+/* SIGNED IN NAVBAR */
+
+.HCLXF,
+.hAGTjY {
+    color: #fa8123 !important;
+    border: 1px solid #fa8123 !important;
+}
+
+
+/* SIDEBAR TEXT COLOR*/
+
+.eggwsi,
+.hjAkKF,
+.LzgUp {
+    color: black !important;
+}
+
+.bezuWY,
+.drVPzO {
+    box-shadow: inset 4px 0px 0px #fa8123 !important;
+}
+
+
+/* SVG ICONS */
+
+.hZpnTq,
+.fAKPah,
+.fWxabH,
+.iuuYre,
+.hpuBxl {
+    fill: #fa8123 !important;
+}
+
+.eZBOSY {
+    fill: black !important;
+}
+
+
+/* NAVBAR ICON*/
+
+.desktop-icon {
+    /*display: none !important;*/
+}
+
+
+/* SIDEBAR BACKGROUND */
+
+.jeBXNn,
+.IKLJT {
+    background: #F0F0F0 !important;
+}
+
+
+/* SIDEBAR HOVER ITEMS */
+
+.bezuWY:hover,
+.ctEzcz:hover {
+    background: white !important;
+}
+
+.iOwBrq,
+.cNgHew,
+.beKuKt,
+.fNcMno {
+    color: #fa8123 !important;
+}
+
+.desktop-icon,
+.mobile-icon {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+.custom-nav {
+    position: absolute;
+    z-index: 999;
+    top: 4px;
+    left: 80px;
+    height: 50px;
+}
+
+
+/* ______________________________________________ */
+
+
+/* ################### MODALS ################### */
+
+
+/* MODAL BACKGROUND */
+
+.hrMCMo {
+    background-color: #ffb380 !important;
+}
+
+
+/* ______________________________________________ */
+
+
+/* ################### HOME PAGE ################### */
+
+.kGRawD,
+.w-50 {
+    width: 50%;
+}
+
+@media (max-width: 768px) {
+    .w-50 {
+        width: 70%;
+    }
+}
+
+.walletRightMargin {
+    margin-right: 20px;
+}
+
+.walletRightMarginx2 {
+    margin-right: 50px;
+}
+
+.walletTopMargin {
+    margin-top: 10px;
+}
+
+
+/* ______________________________________________ */
+
+
+/* ################### Emotion Pool ################### */
+
+.hZwSWH {
+    min-height: 100px !important;
+}
+
+.frtRco,
+.iTStsT,
+.bRnxSN,
+.fCgNnY,
+.TVaJS {
+    color: #fa8123 !important;
+}
+
+.iZWtlA {
+    background: #fa8123 !important;
+}
+
+.klHDWa {
+    color: #fa8123 !important;
+}
+
+.eihoAV {
+    fill: #fa8123 !important;
+}
+
+.custom-height {
+    height: 30px;
+}
+
+
+/* ______________________________________________ */
+
+
+/* ################### Exchanges ################### */
+
+.exchangeImage {
+    min-width: 80%;
+    max-height: 72px;
+}
+
+
+/* ______________________________________________ */
+
+@media only screen and (max-width: 600px) {
+    .gc4 {
+        grid-column: span 8 !important;
+    }
+}
