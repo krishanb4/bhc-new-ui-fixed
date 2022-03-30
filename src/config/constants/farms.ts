@@ -60,13 +60,14 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.wavax,
     farmAddress: '0xe3891B87204870FC26dE020fc9d92eA9848Df74f',
     earn: 'BHC',
-    buyURL: `#`,
+    buyURL: `https://exchange.hakuswap.com/#/add/0xa8752333f6a6fe47323a4edac3d09bb1048a0e23/AVAX`,
     dualEarn: false,
     factor: 1,
     ended: false,
     isBNB: false,
     start: 'Opens in: 8 AM UTC 01/Apr/2022',
     category: 'farming',
+    info: 'https://info.hakuswap.com/token/0xa8752333f6a6fe47323a4edac3d09bb1048a0e23'
   },
 ]
 
