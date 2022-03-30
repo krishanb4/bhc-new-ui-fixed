@@ -23,8 +23,8 @@ const Learn: React.FC = () => {
       <InfoCard sx={{ mb: 3 }}>
         <div className="video-responsive">
           <iframe
-            width="853"
-            height="380"
+            width="100%"
+            height="1100"
             src={video.link}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -39,8 +39,10 @@ const Learn: React.FC = () => {
 }
 
 const DisplayStyle = {
-  display: 'block',
+  display: 'flex',
 }
+
+
 
 const Hero = styled.div`
   padding-top: 40px;
