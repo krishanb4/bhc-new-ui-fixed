@@ -264,7 +264,7 @@ export default function MiniDrawer({ open, afterClickMenu }) {
                   </IconButton>
                 </LinkWrapper>
 
-                <LinkWrapper href="https://t.me/BH_NFT_Official" target="_blank" type="a">
+                <LinkWrapper href="https://t.me/BillionHappinessOfficial" target="_blank" type="a">
                   <IconButton>
                     <img src="/images/icons/icon-telegram-i.svg" alt="" />
                   </IconButton>
