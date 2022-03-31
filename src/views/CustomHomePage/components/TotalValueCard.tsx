@@ -31,7 +31,7 @@ const FarmedStakingCard = () => {
 
   return (
     <StatCard>
-      <StatCardHeader title={TranslateString(542, 'Total Value Locked (TVLL)')} />
+      <StatCardHeader title={TranslateString(542, 'Total Value Locked (TVL)')} />
       <StatCardContent>
         <CardStat>
           <CardStatLabel>{TranslateString(544, 'Across all Farms and Pools')}</CardStatLabel>
