@@ -62,6 +62,8 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, account }
   const lpAddress = farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]
 
   const dayCount = Math.round((farmData.end - Math.floor(Date.now() / 1000)) / 60 / 60 / 24)
+  console.log(farmData);
+
   let endLabel = ''
   if (dayCount > 0) {
     endLabel = `Ends in: ${dayCount} Days`

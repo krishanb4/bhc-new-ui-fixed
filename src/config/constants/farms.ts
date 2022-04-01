@@ -27,7 +27,7 @@ const farms: FarmConfig[] = [
   {
     farmName: 'Feeling Excited',
     image: 'hps-bnb',
-    pid: 0,
+    pid: 1,
     lpSymbol: 'BHC',
     lpAddresses: {
       97: '',
@@ -49,7 +49,7 @@ const farms: FarmConfig[] = [
   {
     farmName: 'Feeling Fast',
     image: 'fast',
-    pid: 0,
+    pid: 2,
     lpSymbol: 'BHC-AVAX HAKUSWAP LP',
     lpAddresses: {
       97: '',
