@@ -65,6 +65,9 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, account }
   let endLabel = ''
   if (dayCount > 0) {
     endLabel = `Ends in: ${dayCount} Days`
+    if (farmData.pid === 15) {
+      endLabel = ''
+    }
   } else if (dayCount <= 0) {
     if (Number(farmData.end) !== 0) {
       endLabel = 'Ended'
