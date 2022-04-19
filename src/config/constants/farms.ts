@@ -3,7 +3,7 @@ import { FarmConfig } from './types'
 
 const farms: FarmConfig[] = [  {
     farmName: 'Feeling Awesome',
-    image: 'sweet',
+    image: 'bhc-new',
     pid: 38,
     lpSymbol: 'BHC',
     lpAddresses: {

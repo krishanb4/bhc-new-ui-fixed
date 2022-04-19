@@ -1,9 +1,10 @@
 import React, { useState, useCallback } from 'react'
+import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
 import styled from 'styled-components'
 import { provider as ProviderType } from 'web3-core'
 import { getAddress } from 'utils/addressHelpers'
 import { getBep20Contract, getFarmContract } from 'utils/contractHelpers'
-import { Button, Flex, Text } from '@pancakeswap-libs/uikit'
 import { Farm } from 'state/types'
 import { useFarmFromSymbol, useFarmUser } from 'state/hooks'
 import useI18n from 'hooks/useI18n'
@@ -13,6 +14,8 @@ import UnlockButton from 'components/UnlockButton'
 import BigNumber from 'bignumber.js'
 import StakeAction from './StakeAction'
 import HarvestAction from './HarvestAction'
+import { CardLabel } from './FarmCardStyles'
+
 
 const Action = styled.div`
   padding-top: 16px;
@@ -56,9 +59,8 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, account, addLiquidi
       if (balanceConstraints[i].limit > Number(constraintBalances[i]) / 10 ** 18) {
         constraints.stakeFulfilled = false
         constraints.withdrawFulfilled = false
-        constraints.msg = `${constraints.msg !== '' ? `${constraints.msg}, ` : ''}${
-          balanceConstraints[i].token.symbol
-        } balance must be greater than ${balanceConstraints[i].limit}`
+        constraints.msg = `${constraints.msg !== '' ? `${constraints.msg}, ` : ''}${balanceConstraints[i].token.symbol
+          } balance must be greater than ${balanceConstraints[i].limit}`
       }
     }
   }
@@ -66,9 +68,8 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, account, addLiquidi
   if (limitCheck) {
     if (limit <= Number(stakedBalance) / 10 ** 18) {
       constraints.stakeFulfilled = false
-      constraints.msg = `${
-        constraints.msg !== '' ? `${constraints.msg}, ` : ''
-      }Can't stake more than ${limit} ${lpSymbol}.`
+      constraints.msg = `${constraints.msg !== '' ? `${constraints.msg}, ` : ''
+        }Can't stake more than ${limit} ${lpSymbol}.`
     }
     limitedBalance = new BigNumber(limit).multipliedBy(10 ** 18).minus(stakedBalance)
     if (limitedBalance.isGreaterThan(tokenBalance)) {
@@ -124,7 +125,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, account, addLiquidi
         constraints={constraints}
       />
     ) : (
-      <Button mt="8px" width="100%" disabled={requestedApproval} onClick={handleApprove}>
+      <Button variant="contained" disableElevation fullWidth disabled={requestedApproval} onClick={handleApprove}>
         {TranslateString(758, 'Approve Contract')}
       </Button>
     )
@@ -133,67 +134,49 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, account, addLiquidi
   const renderEarnedSection = () => {
     return farm.dualEarn ? (
       <>
-        <Flex>
-          <Text bold textTransform="uppercase" color="secondary" fontSize="12px" pr="3px">
-            {/* TODO: Is there a way to get a dynamic value here from useFarmFromSymbol? */}
-            {farm.earn}
-          </Text>
-          <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
-            {TranslateString(1072, 'Earned')}
-          </Text>
-        </Flex>
+        <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <CardLabel>
+            {farm.earn} {TranslateString(1072, 'Earned')}
+          </CardLabel>
+        </Box>
         <HarvestAction earnings={dualEarnings[0]} pid={pid} willEarn="dummy" farmContract={farmContract} />
 
-        <Flex>
-          <Text bold textTransform="uppercase" color="secondary" fontSize="12px" pr="3px">
-            {/* TODO: Is there a way to get a dynamic value here from useFarmFromSymbol? */}
-            {farm.earn2}
-          </Text>
-          <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
-            {TranslateString(1072, 'Earned')}
-          </Text>
-        </Flex>
+        <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <CardLabel>
+            {farm.earn2} {TranslateString(1072, 'Earned')}
+          </CardLabel>
+        </Box>
         <HarvestAction earnings={dualEarnings[1]} pid={pid} willEarn="test" farmContract={farmContract} />
-        <Flex>
-          <Text bold textTransform="uppercase" color="secondary" fontSize="12px" pr="3px">
-            {/* TODO: Is there a way to get a dynamic value here from useFarmFromSymbol? */}
-            {farm.earn3}
-          </Text>
-          <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
-            {TranslateString(1072, 'Earned')}
-          </Text>
-        </Flex>
+
+        <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <CardLabel>
+            {farm.earn3} {TranslateString(1072, 'Earned')}
+          </CardLabel>
+        </Box>
         <HarvestAction earnings={dualEarnings[2]} pid={pid} willEarn="dummy" farmContract={farmContract} />
       </>
     ) : (
       <>
-        <Flex>
-          <Text bold textTransform="uppercase" color="secondary" fontSize="12px" pr="3px">
-            {/* TODO: Is there a way to get a dynamic value here from useFarmFromSymbol? */}
-            {farm.earn}
-          </Text>
-          <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
-            {TranslateString(1072, 'Earned')}
-          </Text>
-        </Flex>
+        <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <CardLabel>
+            {farm.earn} {TranslateString(1072, 'Earned')}
+          </CardLabel>
+        </Box>
         <HarvestAction earnings={earnings} pid={pid} willEarn={farm.lpSymbol} farmContract={farmContract} />
       </>
     )
   }
 
   return (
-    <Action>
+    <Box sx={{ mb: 2, display: 'flex', flexDirection: 'column', height: '100%' }}>
       {renderEarnedSection()}
-      <Flex>
-        <Text bold textTransform="uppercase" color="secondary" fontSize="12px" pr="3px">
-          {lpName}
-        </Text>
-        <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
-          {TranslateString(1074, 'Staked')}
-        </Text>
-      </Flex>
+      <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <CardLabel>
+          {lpName} {TranslateString(1074, 'Staked')}
+        </CardLabel>
+      </Box>
       {!account ? <UnlockButton mt="8px" width="100%" /> : renderApprovalOrStakeButton()}
-    </Action>
+    </Box>
   )
 }
 
