@@ -25,6 +25,7 @@ export interface Farm extends FarmConfig {
     stakedBalance: BigNumber
     earnings: BigNumber
     dualEarnings: [BigNumber, BigNumber, BigNumber]
+    constraintBalances: BigNumber[]
   }
   tvlLp?: BigNumber
   tvlToken?: BigNumber

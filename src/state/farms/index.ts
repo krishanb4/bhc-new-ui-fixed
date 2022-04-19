@@ -12,6 +12,7 @@ import {
   fetchFarmUserTokenBalancesBHC,
   fetchFarmUserStakedBalancesBHC,
   fetchFarmUserEarningsBHCDual,
+  fetchFarmUserConstraintBalancesBHC,
 } from './fetchFarmUser'
 import { FarmsState, Farm } from '../types'
 
@@ -71,6 +72,7 @@ export const fetchFarmUserDataAsyncBHC = (account) => async (dispatch) => {
   const userStakedBalances = await fetchFarmUserStakedBalancesBHC(account)
   const userFarmEarnings = await fetchFarmUserEarningsBHC(account)
   const userFarmDualEarnings = await fetchFarmUserEarningsBHCDual(account)
+  const userConstraintBalances = await fetchFarmUserConstraintBalancesBHC(account)
 
   const arrayOfUserDataObjects = userFarmAllowances.map((farmAllowance, index) => {
     return {
@@ -80,6 +82,7 @@ export const fetchFarmUserDataAsyncBHC = (account) => async (dispatch) => {
       stakedBalance: userStakedBalances[index],
       earnings: userFarmEarnings[index],
       dualEarnings: userFarmDualEarnings[index],
+      constraintBalances: userConstraintBalances[index],
     }
   })
 

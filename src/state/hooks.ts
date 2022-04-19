@@ -12,6 +12,7 @@ import { getBalanceNumber } from 'utils/formatBalance'
 import useRefresh from 'hooks/useRefresh'
 import {
   fetchFarmsPublicDataAsync,
+  fetchPoolsPublicDataAsync,
   fetchPoolsUserDataAsync,
   push as pushToast,
   remove as removeToast,
@@ -90,10 +91,8 @@ export const useFarms = (): Farm[] => {
 
 export const useFarmsTVL = (): number => {
   const farms = useSelector((state: State) => state.farms.data)
-
-  
   let tvl = 0
-  for (let i = 0; i < farms.length; i++) {    
+  for (let i = 0; i < farms.length; i++) {
     tvl += Number(Number(farms[i].tvlInUSD).toFixed(2))
   }
   return tvl
@@ -118,6 +117,7 @@ export const useFarmUser = (pid) => {
     stakedBalance: farm.userData ? new BigNumber(farm.userData.stakedBalance) : new BigNumber(0),
     earnings: farm.userData ? new BigNumber(farm.userData.earnings) : new BigNumber(0),
     dualEarnings: farm.userData ? farm.userData.dualEarnings : [new BigNumber(0), new BigNumber(0), new BigNumber(0)],
+    constraintBalances: farm.userData ? farm.userData.constraintBalances : [new BigNumber(0), new BigNumber(0)],
   }
 }
 
@@ -262,9 +262,18 @@ export const useGetApiPrice = (address: string) => {
 }
 
 export const usePriceCakeBusd = (): BigNumber => {
+  const ZERO = new BigNumber(0)
+  // const cakeBnbFarm = useFarmFromPid(1)
+  // const bnbBusdFarm = useFarmFromPid(2)
+
+  // const bnbBusdPrice = bnbBusdFarm.tokenPriceVsQuote ? new BigNumber(1).div(bnbBusdFarm.tokenPriceVsQuote) : ZERO
+  // const cakeBusdPrice = cakeBnbFarm.tokenPriceVsQuote ? bnbBusdPrice.times(cakeBnbFarm.tokenPriceVsQuote) : ZERO
+
+  // return new BigNumber(123.458)
   return new BigNumber(window.prices['0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4'])
 }
 
+// Block
 export const useBlock = () => {
   return useSelector((state: State) => state.block)
 }

@@ -107,6 +107,41 @@ export const fetchFarmUserTokenBalancesBHC = async (account: string) => {
   return parsedTokenBalances
 }
 
+export const fetchFarmUserConstraintBalancesBHC = async (account: string) => {
+  const calls = farmsConfig.map((farm) => {
+    const balanceCalls = []
+    if (farm.balanceCheck) {
+      for (let tk = 0; tk < farm.balanceConstraints.length; tk++) {
+        balanceCalls.push({
+          address: getAddress(farm.balanceConstraints[tk].token.address),
+          name: 'balanceOf',
+          params: [account],
+        })
+      }
+    }
+    return balanceCalls
+  })
+
+  /* eslint-disable */
+
+  const tokenBalances = []
+  for (let c = 0; c < calls.length; c++) {
+    const rawTokenBalances = await multicall(erc20ABI, calls[c])
+    const parsedTokenBalances = []
+    for (let b = 0; b < rawTokenBalances.length; b++) {
+      parsedTokenBalances.push(new BigNumber(rawTokenBalances[b]).toJSON())
+    }
+    tokenBalances.push(parsedTokenBalances)
+  }
+
+  const parsedTokenBalances = tokenBalances.map((tokenBalance) => {
+    return tokenBalance
+  })
+  /* eslint-enable */
+
+  return parsedTokenBalances
+}
+
 export const fetchFarmUserStakedBalancesBHC = async (account: string) => {
   // const masterChefAddress = getMasterChefAddress()
 

@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import BigNumber from 'bignumber.js'
-import { Button, Flex, Heading } from '@pancakeswap-libs/uikit'
+import Button from '@mui/material/Button';
 import useI18n from 'hooks/useI18n'
 import { useHarvest, useHarvestBHC } from 'hooks/useHarvest'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { useWeb3React } from '@web3-react/core'
 import { Contract } from 'web3-eth-contract'
+import Box from '@mui/material/Box';
+import styled from 'styled-components'
+import { CardLabelWhite } from './FarmCardStyles'
 
 interface FarmCardActionsProps {
   earnings?: BigNumber
@@ -34,7 +37,8 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ willEarn, earnings, pid
       </>
     ) : (
       <>
-        <Button
+        <HarvestButton
+          variant="contained"
           disabled={rawEarningsBalance === 0 || pendingTx}
           onClick={async () => {
             setPendingTx(true)
@@ -43,17 +47,23 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ willEarn, earnings, pid
           }}
         >
           {TranslateString(562, 'Harvest')}
-        </Button>
+        </HarvestButton>
       </>
     )
   }
 
   return (
-    <Flex mb="8px" justifyContent="space-between" alignItems="center">
-      <Heading color={rawEarningsBalance === 0 ? 'textDisabled' : 'text'}>{displayBalance}</Heading>
+    <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <CardLabelWhite sx={{ color: `${rawEarningsBalance === 0 ? '#ddd' : '#000'}` }}>{displayBalance}</CardLabelWhite>
       {willEarn !== 'dummy' ? renderHarvestButton() : null}
-    </Flex>
+    </Box>
   )
 }
+
+const HarvestButton = styled(Button)`
+  border-radius: 4px;
+  background: rgba(248, 116, 48, 0.32);
+  color: #fff;
+`
 
 export default HarvestAction

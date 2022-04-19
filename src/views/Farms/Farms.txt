@@ -1,0 +1,557 @@
+import React, { useEffect, useCallback, useState } from 'react'
+import { Route, useRouteMatch, useLocation } from 'react-router-dom'
+import { useAppDispatch } from 'state'
+import BigNumber from 'bignumber.js'
+import { useWeb3React } from '@web3-react/core'
+import { Image, Heading, RowType, Toggle, Text } from '@pancakeswap-libs/uikit'
+import styled from 'styled-components'
+import FlexLayout from 'components/layout/Flex'
+import Page from 'components/layout/Page'
+import { useFarms, usePriceCakeBusd, useGetApiPrices } from 'state/hooks'
+import useRefresh from 'hooks/useRefresh'
+import { fetchFarmUserDataAsync, fetchFarmUserDataAsyncBHC } from 'state/actions'
+import { Farm } from 'state/types'
+import useI18n from 'hooks/useI18n'
+import { getBalanceNumber } from 'utils/formatBalance'
+import { getFarmApr } from 'utils/apr'
+import { orderBy } from 'lodash'
+
+import { getAddress } from 'utils/addressHelpers'
+import FarmCard, { FarmWithStakedValue } from './components/FarmCard/FarmCard'
+import Table from './components/FarmTable/FarmTable'
+import FarmTabButtons from './components/FarmTabButtons'
+import SearchInput from './components/SearchInput'
+import { RowProps } from './components/FarmTable/Row'
+import ToggleView from './components/ToggleView/ToggleView'
+import { DesktopColumnSchema, ViewMode } from './components/types'
+import Select, { OptionProps } from './components/Select/Select'
+
+import farmsConfig from '../../config/constants/farms'
+
+const ControlContainer = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  position: relative;
+
+  justify-content: space-between;
+  flex-direction: column;
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 16px 32px;
+  }
+`
+
+const ToggleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+
+  ${Text} {
+    margin-left: 8px;
+  }
+`
+
+const LabelWrapper = styled.div`
+  > ${Text} {
+    font-size: 12px;
+  }
+`
+
+const FilterContainer = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 8px 0px;
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    width: auto;
+    padding: 0;
+  }
+`
+
+const ViewControls = styled.div`
+  flex-wrap: wrap;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  > div {
+    padding: 8px 0px;
+  }
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    justify-content: flex-start;
+    width: auto;
+
+    > div {
+      padding: 0;
+    }
+  }
+`
+
+const StyledImage = styled(Image)`
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 58px;
+`
+
+const Header = styled.div`
+  padding: 32px 0px;
+  background: ${({ theme }) => theme.colors.gradients.bubblegum};
+
+  padding-left: 16px;
+  padding-right: 16px;
+
+  ${({ theme }) => theme.mediaQueries.sm} {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+`
+
+const Farms: React.FC = () => {
+  const { path } = useRouteMatch()
+  const { pathname } = useLocation()
+  const TranslateString = useI18n()
+  const farmsLP = useFarms()
+  console.log(farmsLP)
+  const cakePrice = usePriceCakeBusd()
+  const [query, setQuery] = useState('')
+  const [viewMode, setViewMode] = useState(ViewMode.CARD)
+  const { account } = useWeb3React()
+  const [sortOption, setSortOption] = useState('hot')
+  const prices = useGetApiPrices()
+
+  const dispatch = useAppDispatch()
+  const { fastRefresh } = useRefresh()
+  useEffect(() => {
+    if (account) {
+      dispatch(fetchFarmUserDataAsyncBHC(account))
+    }
+  }, [account, dispatch, fastRefresh])
+
+  const [stakedOnly, setStakedOnly] = useState(false)
+
+  const isActive = !pathname.includes('history')
+
+  const activeFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.ended === false)
+  const inactiveFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.ended === true)
+
+  const stakedOnlyFarms = activeFarms.filter(
+    (farm) => farm.pid !== 0 && farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0),
+  )
+
+  const stakedInactiveFarms = inactiveFarms.filter(
+    (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0),
+  )
+
+  const sortFarms = (farms: FarmWithStakedValue[]): FarmWithStakedValue[] => {
+    switch (sortOption) {
+      case 'apr':
+        return orderBy(farms, (farm: FarmWithStakedValue) => farm.apr, 'desc')
+      case 'multiplier':
+        return orderBy(
+          farms,
+          (farm: FarmWithStakedValue) => (farm.multiplier ? Number(farm.multiplier.slice(0, -1)) : 0),
+          'desc',
+        )
+      case 'earned':
+        return orderBy(farms, (farm: FarmWithStakedValue) => (farm.userData ? farm.userData.earnings : 0), 'desc')
+      case 'liquidity':
+        return orderBy(farms, (farm: FarmWithStakedValue) => Number(farm.liquidity), 'desc')
+      default:
+        return farms
+    }
+  }
+
+  const farmsList = useCallback(
+    (farmsToDisplay: Farm[]): FarmWithStakedValue[] => {
+      let farmsToDisplayWithAPR: FarmWithStakedValue[] = farmsToDisplay.map((farm) => {
+        if (!farm.lpTotalInQuoteToken || !prices) {
+          return farm
+        }
+
+        const quoteTokenPriceUsd = prices[getAddress(farm.quoteToken.address).toLowerCase()]
+        const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(quoteTokenPriceUsd)
+        const { apr } = farm
+        const temp = isActive ? getFarmApr(farm.poolWeight, cakePrice, totalLiquidity) : 0
+
+        return { ...farm, apr, liquidity: totalLiquidity }
+      })
+
+      if (query) {
+        const lowercaseQuery = query.toLowerCase()
+        farmsToDisplayWithAPR = farmsToDisplayWithAPR.filter((farm: FarmWithStakedValue) => {
+          return farm.lpSymbol.toLowerCase().includes(lowercaseQuery)
+        })
+      }
+      return farmsToDisplayWithAPR
+    },
+    [cakePrice, prices, query, isActive],
+  )
+
+  const handleChangeQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(event.target.value)
+  }
+
+  let farmsStaked = []
+  const farmData = []
+  if (isActive) {
+    farmsStaked = stakedOnly ? farmsList(stakedOnlyFarms) : farmsList(activeFarms)
+  } else {
+    farmsStaked = stakedOnly ? farmsList(stakedInactiveFarms) : farmsList(inactiveFarms)
+  }
+
+  farmsStaked = farmsList(farmsStaked)
+  // console.log(farmsStaked)
+
+  const rowData = farmsStaked.map((farm) => {
+    const { token, quoteToken } = farm
+    const tokenAddress = token.address
+    const quoteTokenAddress = quoteToken.address
+    const lpLabel = farm.lpSymbol && farm.lpSymbol.split(' ')[0].toUpperCase().replace('PANCAKE', '')
+
+    const row: RowProps = {
+      apr: {
+        value: farm.apr && farm.apr.toLocaleString('en-US', { maximumFractionDigits: 2 }),
+        multiplier: farm.multiplier,
+        lpLabel,
+        tokenAddress,
+        quoteTokenAddress,
+        cakePrice,
+        originalValue: farm.apr,
+      },
+      farm: {
+        image: farm.lpSymbol.split(' ')[0].toLocaleLowerCase(),
+        label: lpLabel,
+        pid: farm.pid,
+      },
+      earned: {
+        earnings: farm.userData ? getBalanceNumber(new BigNumber(farm.userData.earnings)) : null,
+        pid: farm.pid,
+      },
+      liquidity: {
+        liquidity: farm.liquidity,
+      },
+      multiplier: {
+        multiplier: farm.multiplier,
+      },
+      details: farm,
+    }
+
+    // // console.log(farmsStaked)
+
+    return row
+  })
+
+  /*  const theData = [
+    {
+      farmAddress: '0xcC16f9Ca629b140d46886A82FeaF586A5532BD99',
+      apr: 77.00328899286781,
+      liquidity: new BigNumber(1122636951),
+      lpAddresses: {
+        56: '0xcaC3b7DE7D5c44E8E1048241C7dE29a61b5C3E7d',
+        97: '',
+      },
+      lpSymbol: 'HPS-BNB',
+      lpTotalSupply: new BigNumber(1122636951),
+      multiplier: '40X',
+      pid: 1,
+      poolWeight: new BigNumber(1122636951),
+      quoteToken: {
+        address: { 56: '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c', 97: '0xae13d989dac2f0debff460ac112a837c89baa7cd' },
+        decimals: 18,
+        projectLink: 'https://pancakeswap.finance/',
+        symbol: 'wBNB',
+      },
+      quoteTokenAmount: new BigNumber(1122636951),
+      token: {
+        address: { 56: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82', 97: '0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe' },
+        decimals: 18,
+        projectLink: 'https://pancakeswap.finance/',
+        symbol: 'HPS-BNB',
+      },
+      tokenAmount: new BigNumber(1122636951),
+      tokenPriceVsQuote: new BigNumber(1122636951),
+      userData: {
+        allowance: new BigNumber(0),
+        earnings: new BigNumber(0),
+        index: 117,
+        stakedBalance: new BigNumber(0),
+        tokenBalance: new BigNumber(0),
+      },
+      dual: {
+        rewardPerBlock: 0,
+        earnLabel: 'HPS-BNB',
+        endBlock: 0,
+      },
+      willEarn: 'HPS-BNB',
+    },
+    {
+      farmAddress: '',
+
+      apr: 77.00328899286781,
+      liquidity: new BigNumber(1122636951),
+      lpAddresses: {
+        56: '0xA527a61703D82139F8a06Bc30097cC9CAA2df5A6',
+        97: '0x3ed8936cAFDF85cfDBa29Fbe5940A5b0524824F4',
+      },
+      lpSymbol: 'HPS',
+      lpTotalSupply: new BigNumber(1122636951),
+      multiplier: '40X',
+      pid: 2,
+      poolWeight: new BigNumber(1122636951),
+      quoteToken: {
+        address: { 56: '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c', 97: '0xae13d989dac2f0debff460ac112a837c89baa7cd' },
+        decimals: 18,
+        projectLink: 'https://pancakeswap.finance/',
+        symbol: 'wBNB',
+      },
+      quoteTokenAmount: new BigNumber(1122636951),
+      token: {
+        address: { 56: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82', 97: '0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe' },
+        decimals: 18,
+        projectLink: 'https://pancakeswap.finance/',
+        symbol: 'HPS',
+      },
+      tokenAmount: new BigNumber(1122636951),
+      tokenPriceVsQuote: new BigNumber(1122636951),
+      userData: {
+        allowance: new BigNumber(0),
+        earnings: new BigNumber(0),
+        index: 117,
+        stakedBalance: new BigNumber(0),
+        tokenBalance: new BigNumber(0),
+      },
+      dual: {
+        rewardPerBlock: 0,
+        earnLabel: 'HPS',
+        endBlock: 0,
+      },
+    },
+    {
+      farmAddress: '0xF867ea84d04C79Bbd812E76F3eCeDF3d053fFf91',
+
+      apr: 77.00328899286781,
+      liquidity: new BigNumber(1122636951),
+      lpAddresses: {
+        56: '0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4',
+        97: '',
+      },
+      lpSymbol: 'BHC',
+      lpTotalSupply: new BigNumber(1122636951),
+      multiplier: '40X',
+      pid: 3,
+      poolWeight: new BigNumber(1122636951),
+      quoteToken: {
+        address: { 56: '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c', 97: '0xae13d989dac2f0debff460ac112a837c89baa7cd' },
+        decimals: 18,
+        projectLink: 'https://pancakeswap.finance/',
+        symbol: 'wBNB',
+      },
+      quoteTokenAmount: new BigNumber(1122636951),
+      token: {
+        address: { 56: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82', 97: '0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe' },
+        decimals: 18,
+        projectLink: 'https://pancakeswap.finance/',
+        symbol: 'BHC',
+      },
+      tokenAmount: new BigNumber(1122636951),
+      tokenPriceVsQuote: new BigNumber(1122636951),
+      userData: {
+        allowance: new BigNumber(0),
+        earnings: new BigNumber(0),
+        index: 117,
+        stakedBalance: new BigNumber(0),
+        tokenBalance: new BigNumber(0),
+      },
+      dual: {
+        rewardPerBlock: 0,
+        earnLabel: 'BHC',
+        endBlock: 0,
+      },
+    },
+    /*  {
+      farmAddress: '',
+
+      apr: 77.00328899286781,
+      liquidity: new BigNumber(1122636951),
+      lpAddresses: {
+        56: '0xA527a61703D82139F8a06Bc30097cC9CAA2df5A6',
+        97: '0x3ed8936cAFDF85cfDBa29Fbe5940A5b0524824F4',
+      },
+      lpSymbol: '4th-Pool-BHC',
+      lpTotalSupply: new BigNumber(1122636951),
+      multiplier: '40X',
+      pid: 4,
+      poolWeight: new BigNumber(1122636951),
+      quoteToken: {
+        address: { 56: '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c', 97: '0xae13d989dac2f0debff460ac112a837c89baa7cd' },
+        decimals: 18,
+        projectLink: 'https://pancakeswap.finance/',
+        symbol: 'wBNB',
+      },
+      quoteTokenAmount: new BigNumber(1122636951),
+      token: {
+        address: { 56: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82', 97: '0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe' },
+        decimals: 18,
+        projectLink: 'https://pancakeswap.finance/',
+        symbol: 'BHC',
+      },
+      tokenAmount: new BigNumber(1122636951),
+      tokenPriceVsQuote: new BigNumber(1122636951),
+      userData: {
+        allowance: new BigNumber(0),
+        earnings: new BigNumber(0),
+        index: 117,
+        stakedBalance: new BigNumber(0),
+        tokenBalance: new BigNumber(0),
+      },
+      dual: {
+        rewardPerBlock: 0,
+        earnLabel: '4th-Pool-BHC',
+        endBlock: 0,
+      },
+    },
+  ] */
+
+  // // console.log(theData)
+
+  // theData.map((farm) => {
+  //   // console.log(farm)
+  //   return ''
+  // })
+
+  const renderContent = (): JSX.Element => {
+    if (viewMode === ViewMode.TABLE && rowData.length) {
+      const columnSchema = DesktopColumnSchema
+
+      const columns = columnSchema.map((column) => ({
+        id: column.id,
+        name: column.name,
+        label: column.label,
+        sort: (a: RowType<RowProps>, b: RowType<RowProps>) => {
+          switch (column.name) {
+            case 'farm':
+              return b.id - a.id
+            case 'apr':
+              if (a.original.apr.value && b.original.apr.value) {
+                return Number(a.original.apr.value) - Number(b.original.apr.value)
+              }
+
+              return 0
+            case 'earned':
+              return a.original.earned.earnings - b.original.earned.earnings
+            default:
+              return 1
+          }
+        },
+        sortable: column.sortable,
+      }))
+
+      return <Table data={rowData} columns={columns} />
+    }
+
+    return (
+      <div>
+        <FlexLayout>
+          <Route exact path={`${path}`}>
+            {farmsStaked.map((farm) =>
+              !farm.ended ? (
+                <FarmCard key={farm.pid} farm={farm} cakePrice={cakePrice} account={account} removed={false} />
+              ) : (
+                <></>
+              ),
+            )}
+          </Route>
+          <Route exact path={`${path}/history`}>
+            {farmsStaked.map((farm) =>
+              farm.ended ? (
+                <FarmCard key={farm.pid} farm={farm} cakePrice={cakePrice} account={account} removed />
+              ) : (
+                <></>
+              ),
+            )}
+          </Route>
+        </FlexLayout>
+      </div>
+    )
+  }
+
+  const handleSortOptionChange = (option: OptionProps): void => {
+    setSortOption(option.value)
+  }
+
+  return (
+    <>
+      <Header>
+        <Heading as="h1" size="xxl" color="#f88130" mb="24px">
+          {TranslateString(674, 'Emotion Pools')}
+        </Heading>
+        <Heading size="lg" color="#f88130">
+          {TranslateString(999, 'Stake Liquidity Pool (LP) tokens and single tokens to earn.')}
+        </Heading>
+      </Header>
+      <Page>
+        <ControlContainer>
+          <ViewControls>
+            {/* <ToggleView viewMode={viewMode} onToggle={(mode: ViewMode) => setViewMode(mode)} /> */}
+            <ToggleWrapper>
+              <Toggle
+                checked={stakedOnly}
+                onChange={() => {
+                  setStakedOnly(!stakedOnly)
+                }}
+                scale="sm"
+              />
+              <Text> {TranslateString(1116, `Staked only`)} </Text>
+            </ToggleWrapper>
+            <FarmTabButtons />
+          </ViewControls>
+          {/* <FilterContainer>
+            <LabelWrapper>
+              <Text>SORT BY</Text>
+              <Select
+                options={[
+                  {
+                    label: 'Hot',
+                    value: 'hot',
+                  },
+                  {
+                    label: 'APR',
+                    value: 'apr',
+                  },
+                  {
+                    label: 'Multiplier',
+                    value: 'multiplier',
+                  },
+                  {
+                    label: 'Earned',
+                    value: 'earned',
+                  },
+                  {
+                    label: 'Liquidity',
+                    value: 'liquidity',
+                  },
+                ]}
+                onChange={handleSortOptionChange}
+
+              />
+            </LabelWrapper>
+            <LabelWrapper style={{ marginLeft: 16 }}>
+              <Text>SEARCH</Text>
+              <SearchInput onChange={handleChangeQuery} value={query} />
+            </LabelWrapper>
+          </FilterContainer> */}
+        </ControlContainer>
+        {renderContent()}
+        {/* <StyledImage src="/images/3dpan.png" alt="Pancake illustration" width={120} height={103} /> */}
+      </Page>
+    </>
+  )
+}
+
+export default Farms

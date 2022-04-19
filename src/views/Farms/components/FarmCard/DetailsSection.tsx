@@ -1,10 +1,7 @@
 import React from 'react'
-import LinkIcon from '@mui/icons-material/Link'
 import useI18n from 'hooks/useI18n'
 import styled from 'styled-components'
 import { Text, Flex, LinkExternal } from '@pancakeswap-libs/uikit'
-import Box from '@mui/material/Box'
-import { CardLabel, StyledLinkExternal } from './FarmCardStyles'
 
 export interface ExpandableSectionProps {
   bscScanAddress?: string
@@ -14,6 +11,14 @@ export interface ExpandableSectionProps {
   lpLabel?: string
   addLiquidityUrl?: string
 }
+
+const Wrapper = styled.div`
+  margin-top: 24px;
+`
+
+const StyledLinkExternal = styled(LinkExternal)`
+  font-weight: 400;
+`
 
 const DetailsSection: React.FC<ExpandableSectionProps> = ({
   bscScanAddress,
@@ -26,34 +31,23 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
   const TranslateString = useI18n()
 
   return (
-    <Box sx={{ mb: 2 }}>
-      <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <CardLabel>
-          {TranslateString(354, 'TVL')}:
-        </CardLabel>
-        <CardLabel>{totalValueFormatted}</CardLabel>
-      </Box>
+    <Wrapper>
+      <Flex justifyContent="space-between">
+        <Text>{TranslateString(354, 'TVL')}:</Text>
+        <Text>{totalValueFormatted}</Text>
+      </Flex>
       {!removed && (
-        <StyledLinkExternal href={addLiquidityUrl} underline="none">
+        <StyledLinkExternal href={addLiquidityUrl}>
           {TranslateString(999, `Get ${lpLabel}`, { name: lpLabel })}
-          <LinkIcon />
         </StyledLinkExternal>
       )}
-
-      <StyledLinkExternal href={bscScanAddress} underline="none">
-        {TranslateString(999, 'View Contract')}
-        <LinkIcon />
-      </StyledLinkExternal>
-
+      <StyledLinkExternal href={bscScanAddress}>{TranslateString(999, 'View Contract')}</StyledLinkExternal>
       {lpLabel.includes('-') ? (
-        <StyledLinkExternal href={infoAddress} underline="none">
-          {TranslateString(999, 'See Pair Info')}
-          <LinkIcon />
-        </StyledLinkExternal>
+        <StyledLinkExternal href={infoAddress}>{TranslateString(999, 'See Pair Info')}</StyledLinkExternal>
       ) : (
         <></>
       )}
-    </Box>
+    </Wrapper>
   )
 }
 
