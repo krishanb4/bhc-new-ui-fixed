@@ -15,7 +15,7 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.wbnb,
     farmAddress: '0xA4e5854C6a01C50b4951534233A38718127D0335',
     earn: 'HPSv2',
-    buyURL: `https://app.apeswap.finance/swap?outputCurrency=${tokens.hpsv2.address['56']}`,
+    buyURL: `https://pancakeswap.finance/swap?outputCurrency=${tokens.hpsv2.address['56']}`,
     dualEarn: false,
     factor: 1,
     ended: false,
