@@ -66,7 +66,7 @@ const Farms: React.FC<FarmsInterface> = ({ title, subTitle, type }) => {
     if (stakedOnly) {
       allFarms = stakedOnlyFarms
     } else {
-      allFarms = farmsConfig
+      allFarms = farmsLP
     }
 
     allFarms = allFarms.filter(({ category }) => {

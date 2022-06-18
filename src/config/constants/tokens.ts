@@ -1281,6 +1281,14 @@ const tokens = {
     decimals: 9,
     projectLink: '',
   },
+  hpsv2: {
+    symbol: 'HPSv2',
+    address: {
+      56: '0xc9d53a339f3c22e016c6fa1e3eb85ac32c75fed2',
+      97: '',
+    },
+    decimals: 18,
+    projectLink: '',
+  },
 }
-
 export default tokens

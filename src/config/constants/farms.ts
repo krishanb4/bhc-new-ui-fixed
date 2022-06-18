@@ -1,7 +1,29 @@
 import tokens from './tokens'
 import { FarmConfig } from './types'
 
-const farms: FarmConfig[] = [  {
+const farms: FarmConfig[] = [
+  {
+    farmName: 'Feeling Love',
+    image: 'HPS',
+    pid: 39,
+    lpSymbol: 'HPSv2',
+    lpAddresses: {
+      97: '',
+      56: '0xc9d53a339f3c22e016c6fa1e3eb85ac32c75fed2',
+    },
+    token: tokens.hpsv2,
+    quoteToken: tokens.wbnb,
+    farmAddress: '0xA4e5854C6a01C50b4951534233A38718127D0335',
+    earn: 'HPSv2',
+    buyURL: `https://app.apeswap.finance/swap?outputCurrency=${tokens.hpsv2.address['56']}`,
+    dualEarn: false,
+    factor: 1,
+    ended: false,
+    isBNB: false,
+    start: 'Opens in: 8 AM UTC 20/Jun/2022',
+    category: 'emotional',
+  },
+  {
     farmName: 'Feeling Awesome',
     image: 'bhc-new',
     pid: 38,
@@ -105,7 +127,7 @@ const farms: FarmConfig[] = [  {
     buyURL: `https://app.apeswap.finance/swap?outputCurrency=${tokens.hps.address['56']}`,
     dualEarn: false,
     factor: 1,
-    ended: false,
+    ended: true,
     isBNB: false,
     start: 'Opens in: 8 AM UTC 14/Feb/2022',
     category: 'emotional',

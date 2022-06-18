@@ -47,6 +47,7 @@ window.prices = {
   '0xbA2aE424d960c26247Dd6c32edC70B295c744C43': 0,
   '0x1d2f0da169ceb9fc7b3144628db156f3f6c60dbe': 0,
   '0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c': 0,
+  '0xc9d53a339f3c22e016c6fa1e3eb85ac32c75fed2': 0, // HPSv2
 }
 
 const App: React.FC = () => {
