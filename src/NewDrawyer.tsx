@@ -74,6 +74,14 @@ const menuItems = [
     target: '_blank',
     soon: 'New',
   },
+  {
+    name: 'HPS Migration',
+    icon: 'icon-trade.svg',
+    href: 'https://migratehps.billionhappiness.finance/',
+    type: 'a',
+    target: '_blank',
+    soon: 'New',
+  },
 ]
 
 const style = {
