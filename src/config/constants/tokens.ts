@@ -1290,5 +1290,14 @@ const tokens = {
     decimals: 18,
     projectLink: '',
   },
+  catpay: {
+    symbol: 'CATPAY',
+    address: {
+      56: '0x0611686A2558de495617685b3Da12448657170FE',
+      97: '',
+    },
+    decimals: 9,
+    projectLink: '',
+  },
 }
 export default tokens
