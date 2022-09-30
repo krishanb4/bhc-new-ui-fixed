@@ -16,14 +16,14 @@ export const setupNetwork = async () => {
         params: [
           {
             chainId: `0x${chainId.toString(16)}`,
-            chainName: 'AME Mainnet',
+            chainName: 'ETHW Mainnet',
             nativeCurrency: {
-              name: 'AME',
-              symbol: 'ame',
+              name: 'ETHW',
+              symbol: 'ethw',
               decimals: 18,
             },
             rpcUrls: nodes,
-            blockExplorerUrls: [' https://amescan.io/'],
+            blockExplorerUrls: ['https://mainnet.ethwscan.com'],
           },
         ],
       })

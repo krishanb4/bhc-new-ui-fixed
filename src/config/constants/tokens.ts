@@ -1281,6 +1281,16 @@ const tokens = {
     decimals: 9,
     projectLink: '',
   },
+  wethw: {
+    symbol: 'WETHW',
+    address: {
+      56: '0x76aECB353AbF596BD61EE6BDb07d70787DeC4FD6',
+      97: '',
+      10001: '0x7bf88d2c0e32de92cdaf2d43ccdc23e8edfd5990',
+    },
+    decimals: 9,
+    projectLink: '',
+  },
 }
 
 export default tokens
