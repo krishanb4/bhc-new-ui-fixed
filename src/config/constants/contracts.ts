@@ -18,7 +18,7 @@ export default {
   mulltiCall: {
     56: '0x1ee38d535d541c55c9dae27b12edf090c608e6fb',
     97: '0x67ADCB4dF3931b0C5Da724058ADC2174a9844412',
-    10001: '', //pikdev - replace here with new multicall contract
+    10001: '0xf561e5a9dab13af960cc6b848b9adbfc0139fca8', // pikdev - replace here with new multicall contract
   },
   pancakeProfile: {
     56: '0xDf4dBf6536201370F95e06A0F8a7a70fE40E388a',

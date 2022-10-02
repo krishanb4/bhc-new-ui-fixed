@@ -2,7 +2,7 @@ import tokens from './tokens'
 import { FarmConfig } from './types'
 
 const farms: FarmConfig[] = [
-  //{
+  //   {
   //   farmName: 'Feeling Awesome',
   //   image: 'bhc-new',
   //   pid: 38,
@@ -368,7 +368,6 @@ const farms: FarmConfig[] = [
   // //   isBNB: false,
   // //   locked: false,
   // //   info: '',
-
   // // },
   // // {
   // //   farmName: 'HPS Milestone Pool 2',
@@ -805,7 +804,6 @@ const farms: FarmConfig[] = [
   //   isBNB: false,
   //   category: 'emotional',
   // },
-
   // {
   //   pid: 4,
   //   lpSymbol: 'BHC',
@@ -850,27 +848,27 @@ const farms: FarmConfig[] = [
   //   isBNB: false,
   //   category: 'emotional',
   // },
-  {
-    farmName: 'Feeling High',
-    image: 'high',
-    pid: 0,
-    lpSymbol: 'BHC-BNB StreetSwap LP',
-    lpAddresses: {
-      97: '',
-      56: '0xd46E7f33f8788f87D6017074dC4e4d781D3df91E',
-    },
-    token: tokens.bhc,
-    quoteToken: tokens.wbnb,
-    farmAddress: '0x1886E1d6f28f89E3756c06E91cb31b628569e05D',
-    earn: 'BHC',
-    buyURL: '#',
-    dualEarn: false,
-    factor: 0,
-    ended: true,
-    isBNB: false,
-    info: '#',
-    category: 'farming',
-  },
+  // {
+  //   farmName: 'Feeling High',
+  //   image: 'high',
+  //   pid: 0,
+  //   lpSymbol: 'BHC-BNB StreetSwap LP',
+  //   lpAddresses: {
+  //     97: '',
+  //     56: '0xd46E7f33f8788f87D6017074dC4e4d781D3df91E',
+  //   },
+  //   token: tokens.bhc,
+  //   quoteToken: tokens.wbnb,
+  //   farmAddress: '0x1886E1d6f28f89E3756c06E91cb31b628569e05D',
+  //   earn: 'BHC',
+  //   buyURL: '#',
+  //   dualEarn: false,
+  //   factor: 0,
+  //   ended: true,
+  //   isBNB: false,
+  //   info: '#',
+  //   category: 'farming',
+  // },
 ]
 
 export default farms

@@ -5,8 +5,8 @@ import { StatCard, StatCardHeader, StatCardContent, Wallet, WalletIcon, WalletLa
 
 const FarmedStakingCard = () => {
   const TranslateString = useI18n()
-  const BHCBalance = useTokenBalance('0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4')
-  const HPSBalance = useTokenBalance('0xeDa21B525Ac789EaB1a08ef2404dd8505FfB973D')
+  const BHCBalance = useTokenBalance('0x0c9f28FBdFd79f7C00B805d8c63D053c146d282c')
+  const HPSBalance = useTokenBalance('0x0c9f28FBdFd79f7C00B805d8c63D053c146d282c')
 
   return (
     <StatCard>
