@@ -11,6 +11,7 @@ import bitmart from './images/bitmart.png'
 import hotbit from './images/hotbit.png'
 import mexc from './images/mexc-global.png'
 import jetswap from './images/new_jetswap.png'
+import knightswap from './images/knight.png'
 import pancakeswap from './images/pancakeswap.png'
 import probit from './images/probit.png'
 
@@ -59,6 +60,16 @@ const CustomExchanges = () => {
               }
             >
               <img src={jetswap} alt="jetswap" />
+            </LogoCardButton>
+            <LogoCardButton
+              onClick={() =>
+                window.open(
+                  'https://dex.knightswap.financial/#/swap?outputCurrency=0x6fd7c98458a943f469e1cf4ea85b173f5cd342f4',
+                  '_blank',
+                )
+              }
+            >
+              <img src={knightswap} alt="jetswap" />
             </LogoCardButton>
           </ExchangeCard>
         </Grid>

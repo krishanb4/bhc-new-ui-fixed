@@ -17,10 +17,10 @@ const farms: FarmConfig[] = [
     earn: 'CATPAY',
     buyURL: `https://pancakeswap.finance/swap?outputCurrency=${tokens.hpsv2.address['56']}`,
     dualEarn: false,
-    factor: 1,
+    factor: 0.000000033762991,
     ended: false,
     isBNB: false,
-    start: 'Opens in: 8 AM UTC 23/Sep/2022',
+    start: 'Opens in: 8 AM UTC 28/Sep/2022',
     category: 'emotional',
   },
   {

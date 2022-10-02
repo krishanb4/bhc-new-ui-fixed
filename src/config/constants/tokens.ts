@@ -1131,7 +1131,7 @@ const tokens = {
   hps: {
     symbol: 'HPS',
     address: {
-      56: '0xeDa21B525Ac789EaB1a08ef2404dd8505FfB973D',
+      56: '0xc9D53A339F3c22E016C6fA1E3Eb85AC32c75fED2',
       97: '',
     },
     decimals: 18,
