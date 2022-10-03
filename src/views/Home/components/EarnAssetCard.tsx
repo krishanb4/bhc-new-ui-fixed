@@ -7,7 +7,7 @@ import pools from 'config/constants/pools'
 import { Pool } from 'state/types'
 
 const StyledFarmStakingCard = styled(Card)`
-  background: linear-gradient(#fa8123, #818181);
+  background: linear-gradient(#6681ca, #818181);
   margin-left: auto;
   margin-right: auto;
   width: 100%;

@@ -19,13 +19,13 @@ const FarmedStakingCard = () => {
             <WalletLabel> {Number(Number(BHCBalance) / 10 ** 18).toFixed(2)}</WalletLabel>
           </div>
         </Wallet>
-        <Wallet>
+        {/* <Wallet>
           <WalletIcon src="/images/hps-logo.png" alt="HPS logo" />
           <div>
             <WalletLabel>{TranslateString(546, 'HPS in wallet')}</WalletLabel>
-            <WalletLabel>{Number(Number(HPSBalance) / 10 ** 18).toFixed(2)}</WalletLabel>
+             <WalletLabel>{Number(Number(HPSBalance) / 10 ** 18).toFixed(2)}</WalletLabel> 
           </div>
-        </Wallet>
+        </Wallet> */}
       </StatCardContent>
     </StatCard>
   )

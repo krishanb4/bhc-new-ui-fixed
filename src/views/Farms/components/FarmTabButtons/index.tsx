@@ -57,7 +57,7 @@ const StatusSwitchButton = styled(ToggleButton)`
     padding: 5px 16px;
     line-height: 1;
     font-size: 14px;
-    color: #fa8123;
+    color: #6681ca;
     border: none !important;
     height: 30px;
 
@@ -66,11 +66,11 @@ const StatusSwitchButton = styled(ToggleButton)`
     }
 
     &.Mui-selected {
-      background: #fa8123;
+      background: #6681ca;
       color: #fff;
 
       &:hover {
-        background: #fa8123;
+        background: #6681ca;
       }
     }
 

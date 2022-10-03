@@ -11,7 +11,7 @@ import bitmart from './images/bitmart.png'
 import hotbit from './images/hotbit.png'
 import mexc from './images/mexc-global.png'
 import jetswap from './images/new_jetswap.png'
-import pancakeswap from './images/pancakeswap.png'
+import lgswap from './images/lgf-color-black.png'
 import probit from './images/probit.png'
 
 const CustomExchanges = () => {
@@ -29,36 +29,12 @@ const CustomExchanges = () => {
             <LogoCardButton
               onClick={() =>
                 window.open(
-                  'https://pancakeswap.finance/swap?inputCurrency=0x6fd7c98458a943f469e1cf4ea85b173f5cd342f4',
+                  'https://app.lfgswap.finance/swap?outputCurrency=0x0c9f28FBdFd79f7C00B805d8c63D053c146d282c',
                   '_blank',
                 )
               }
             >
-              <img src={pancakeswap} alt="pancakeswap" />
-            </LogoCardButton>
-
-            <LogoCardButton
-              onClick={() =>
-                window.open(
-                  'https://apeswap.finance/swap?outputCurrency=0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4',
-                  '_blank',
-                )
-              }
-            >
-              <img src={julswap} alt="apeswap" />
-            </LogoCardButton>
-            <LogoCardButton onClick={() => window.open('https://app.1inch.io/#/56/classic/swap/BNB/BHC', '_blank')}>
-              <img src={inch} alt="1inch" />
-            </LogoCardButton>
-            <LogoCardButton
-              onClick={() =>
-                window.open(
-                  'https://exchange.jetswap.finance/#/swap?outputCurrency=0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4',
-                  '_blank',
-                )
-              }
-            >
-              <img src={jetswap} alt="jetswap" />
+              <img src={lgswap} alt="lgswap" />
             </LogoCardButton>
           </ExchangeCard>
         </Grid>
@@ -178,7 +154,7 @@ const ExchangeCardFooter = styled.div`
   border-top: 3px solid #707070;
   padding-top: 10px;
   font-size: 25px;
-  color: #fa8123;
+  color: #6681ca;
   font-weight: 600;
   text-align: center;
 `

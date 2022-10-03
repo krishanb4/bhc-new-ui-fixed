@@ -19,7 +19,7 @@ const LotteryJackpot = () => {
 
   return (
     <>
-      <Text color="#fa8123" bold fontSize="24px" style={{ lineHeight: '1.5' }}>
+      <Text color="#6681ca" bold fontSize="24px" style={{ lineHeight: '1.5' }}>
         {TranslateString(999, `${lotteryPrizeAmountCake} CAKE`, { amount: lotteryPrizeAmountCake })}
       </Text>
       {!cakePriceBusd.eq(0) ? <CardBusdValue value={lotteryPrizeAmountBusd} /> : <br />}

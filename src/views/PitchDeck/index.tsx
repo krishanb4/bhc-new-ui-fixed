@@ -5,7 +5,7 @@ import useI18n from 'hooks/useI18n'
 import Page from 'components/layout/Page'
 
 const StyledHero = styled.div`
-  border-bottom: 2px solid #fa8123;
+  border-bottom: 2px solid #6681ca;
   margin-bottom: 24px;
   padding-bottom: 32px;
 `
@@ -46,13 +46,13 @@ const StyledFooter = styled.div`
   border-top: 1px solid #dcdcdc;
   padding-top: 10px;
   font-size: 25px;
-  color: #fa8123;
+  color: #6681ca;
   font-weight: 400;
 `
 
 const BtnStyle = {
   color: "white",
-  background: "#fa8123",
+  background: "#6681ca",
   borderRadius: "10px",
   fontWeight: 100,
   fontSize: "26px"
@@ -69,7 +69,7 @@ const CustomExchanges = () => {
   return (
     <Page>
       <StyledHero>
-        <Heading as="h1" size="xxl" color="#fa8123">
+        <Heading as="h1" size="xxl" color="#6681ca">
           {TranslateString(999, 'Pitch Deck')}
         </Heading>
       </StyledHero>

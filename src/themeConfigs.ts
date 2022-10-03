@@ -15,7 +15,7 @@ const lightPalette = {
   },
   primary: {
     light: '#FC984A',
-    main: '#FA8123',
+    main: '#6681ca',
     dark: '#EB7417',
     contrastText: '#ffffff',
   },
@@ -37,7 +37,7 @@ const darkPalette = {
   },
   primary: {
     light: '#FC984A',
-    main: '#FA8123',
+    main: '#6681ca',
     dark: '#EB7417',
     contrastText: '#ffffff',
   },

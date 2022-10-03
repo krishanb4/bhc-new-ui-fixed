@@ -76,6 +76,7 @@ const FCard = styled.div`
   padding: 24px;
   position: relative;
   text-align: center;
+  
 `
 
 const Divider = styled.div`
@@ -227,7 +228,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, account }
       <ExpandingWrapper expanded={showExpandableSection}>
         <DetailsSection
           removed={removed}
-          bscScanAddress={`https://bscscan.com/address/${farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]}`}
+          bscScanAddress={`https://www.oklink.com/en/ethw/address/${farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]}`}
           infoAddress={farm.info}
           totalValueFormatted={totalValueFormatted}
           lpLabel={lpLabel}

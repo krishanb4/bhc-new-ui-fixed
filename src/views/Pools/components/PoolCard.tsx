@@ -238,6 +238,7 @@ const StyledCardActions = styled.div`
   margin: 16px 0;
   width: 100%;
   box-sizing: border-box;
+  
 `
 
 const BalanceAndCompound = styled.div`

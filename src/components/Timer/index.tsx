@@ -13,7 +13,7 @@ export interface TimerProps {
   BodyTextComponent?: React.ElementType
 }
 
-const StyledTimerFlex = styled(Flex)<{ showTooltip?: boolean }>`
+const StyledTimerFlex = styled(Flex) <{ showTooltip?: boolean }>`
   ${({ theme, showTooltip }) => (showTooltip ? ` border-bottom: 1px dashed ${theme.colors.textSubtle};` : ``)}
   div:last-of-type {
     margin-right: 0;
@@ -49,7 +49,7 @@ const TooltipContent = ({ blockNumber }) => (
     <Text color="body" mb="10px" fontWeight="600">
       Block {blockNumber}
     </Text>
-    <Link external href={`https://bscscan.com/block/${blockNumber}`}>
+    <Link external href={`https://www.oklink.com/en/ethw/block/${blockNumber}`}>
       View on BscScan
     </Link>
   </>

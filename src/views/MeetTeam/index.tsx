@@ -56,7 +56,7 @@ const HeroTitle = styled.h1`
   font-weight: 600;
   font-size: 50px;
   line-height: 1.2;
-  color: #fa8123;
+  color: #6681ca;
   margin-top: 0;
   margin-bottom: 10px;
 

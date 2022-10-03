@@ -58,8 +58,8 @@ const App: React.FC = () => {
             <Route path="/learn/:id">
               <Learn />
             </Route>
-            <Route path="/emotion-pools">
-              <Farms type={FarmType.EmotionPools} title="Emotion Pools" subTitle="Stake single tokens to earn" />
+            <Route path="/staking-pools">
+              <Farms type={FarmType.EmotionPools} title="Staking Pools" subTitle="Stake single tokens to earn" />
             </Route>
             <Route path="/milestone-pools">
               <Farms type={FarmType.MilestonePools} title="Milestone Pools" subTitle="Stake single tokens to earn" />

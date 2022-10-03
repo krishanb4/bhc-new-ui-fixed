@@ -29,20 +29,20 @@ const CakeStats = () => {
   return (
     <StyledCakeStats>
       <CardBody>
-        <Heading color="#fa8123" size="xl" mb="24px">
+        <Heading color="#6681ca" size="xl" mb="24px">
           {TranslateString(534, 'Cake Stats')}
         </Heading>
         <Row>
-          <Text color="#fa8123" fontSize="14px">{TranslateString(536, 'Total CAKE Supply')}</Text>
-          {cakeSupply && <CardValue color="#fa8123" fontSize="14px" value={cakeSupply} />}
+          <Text color="#6681ca" fontSize="14px">{TranslateString(536, 'Total CAKE Supply')}</Text>
+          {cakeSupply && <CardValue color="#6681ca" fontSize="14px" value={cakeSupply} />}
         </Row>
         <Row>
-          <Text color="#fa8123" fontSize="14px">{TranslateString(538, 'Total CAKE Burned')}</Text>
-          <CardValue color="#fa8123" fontSize="14px" decimals={0} value={burnedBalance} />
+          <Text color="#6681ca" fontSize="14px">{TranslateString(538, 'Total CAKE Burned')}</Text>
+          <CardValue color="#6681ca" fontSize="14px" decimals={0} value={burnedBalance} />
         </Row>
         <Row>
-          <Text color="#fa8123" fontSize="14px">{TranslateString(540, 'New CAKE/block')}</Text>
-          <CardValue color="#fa8123" fontSize="14px" decimals={0} value={22} />
+          <Text color="#6681ca" fontSize="14px">{TranslateString(540, 'New CAKE/block')}</Text>
+          <CardValue color="#6681ca" fontSize="14px" decimals={0} value={22} />
         </Row>
       </CardBody>
     </StyledCakeStats>

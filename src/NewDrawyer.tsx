@@ -33,20 +33,21 @@ const menuItems = [
     icon: 'icon-trade.svg',
   },
   {
-    name: 'Pools',
+    name: 'Staking Pools',
+    to: '/staking-pools',
     icon: 'icon-emotion-pools.svg',
-    subItems: [
-      {
-        name: 'Emotion Pools',
-        to: '/emotion-pools',
-        icon: 'icon-fidget.svg',
-      },
-      {
-        name: 'Milestone Pools',
-        to: '/milestone-pools',
-        icon: 'icon-archive.svg',
-      },
-    ],
+    // subItems: [
+    //   // {
+    //   //   name: 'Emotion Pools',
+    //   //   to: '/emotion-pools',
+    //   //   icon: 'icon-fidget.svg',
+    //   // },
+    //   // {
+    //   //   name: 'Milestone Pools',
+    //   //   to: '/milestone-pools',
+    //   //   icon: 'icon-archive.svg',
+    //   // },
+    // ],
   },
   {
     name: 'Yield Farming',
@@ -58,6 +59,7 @@ const menuItems = [
     icon: 'VAULT.png',
     subTitle: 'Coming soon',
     soon: 'Soon',
+    subItems: []
   },
   {
     name: 'NFT Marketplace',
@@ -69,7 +71,7 @@ const menuItems = [
   {
     name: 'Bridge',
     icon: 'icon-bridge.svg',
-    href: 'https://app.multichain.org/#/router',
+    href: 'https://openapi.chainge.finance/app?fromChain=BSC&toChain=ETHW&fromToken=BHC&toToken=BHC',
     type: 'a',
     target: '_blank',
     soon: 'New',
@@ -84,8 +86,8 @@ const style = {
   width: isMobile ? '100%' : '50%',
   height: isMobile ? '100%' : 'auto',
   boxShadow: 24,
-  border: '2px solid #fa8123',
-  backgroundColor: '#fa8123',
+  border: '2px solid #6681ca',
+  backgroundColor: '#6681ca',
   borderRadius: isMobile ? 0 : 10,
   p: 4,
 }
@@ -248,10 +250,10 @@ export default function MiniDrawer({ open, afterClickMenu }) {
               <BottomListItemImg src="/images/icons/icon-bcoin.png" alt="" />
               <BottomListItemText>${BHCValue}</BottomListItemText>
             </BottomListItem>
-            <BottomListItem>
+            {/* <BottomListItem>
               <BottomListItemImg src="/images/icons/icon-hcoin.png" alt="" />
               <BottomListItemText>${HPSValue}</BottomListItemText>
-            </BottomListItem>
+            </BottomListItem> */}
           </CurrencyList>
 
           <Box sx={{ display: 'flex' }}>
@@ -435,7 +437,7 @@ const DrawerComponent = styled(Drawer)`
     top: 64px;
     bottom: 0;
     border-radius: 0 20px 20px 0;
-    background-color: #fa8123;
+    background-color: #6681ca;
     height: auto;
 
     .MuiBox-root {

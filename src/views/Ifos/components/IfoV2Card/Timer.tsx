@@ -25,7 +25,7 @@ const Timer: React.FC<Props> = ({ publicIfoData }) => {
             </Text>
             <Text>{`${timeUntil.days}d ${timeUntil.hours}h ${timeUntil.minutes}m`}</Text>
             <Link
-              href={`https://bscscan.com/block/countdown/${startBlockNum}`}
+              href={`https://www.oklink.com/en/ethw/block/countdown/${startBlockNum}`}
               target="blank"
               rel="noopener noreferrer"
               ml="8px"

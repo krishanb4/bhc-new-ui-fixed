@@ -91,7 +91,7 @@ const Farms: React.FC<FarmsInterface> = ({ title, subTitle, type }) => {
         </FormGroup>
         <FarmTabButtons path={path} />
       </ToolBar>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} style={{ justifyContent: 'center' }}>
         <Route exact path={`${path}`}>
           {getFarms().map((farm) =>
             !farm.ended ? (
@@ -163,6 +163,7 @@ const ToolBar = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 24px;
+  justify-content: center;
 `
 
 const FormControlSwitch = muiStyled(FormControlLabel)(({ theme }) => ({
