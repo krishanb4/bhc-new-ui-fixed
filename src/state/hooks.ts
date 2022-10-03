@@ -64,6 +64,8 @@ export const useFetchPublicData = () => {
               '0xADCa52302e0a6c2d5D68EDCdB4Ac75DeB5466884': JSON.parse(body1).gmr, // GMR
               '0x76aECB353AbF596BD61EE6BDb07d70787DeC4FD6': JSON.parse(body1).cure, // CURE
               '0xa19d3f4219e2ed6dc1cb595db20f70b8b6866734': JSON.parse(body1).wirtual, //  WIRTUAL'
+              '0xc9d53a339f3c22e016c6fa1e3eb85ac32c75fed2': JSON.parse(body1).hpsv2, // HPSv2
+              '0x0611686A2558de495617685b3Da12448657170FE': JSON.parse(body1).catpay, // CATPAY
             }
           })
       })

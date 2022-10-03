@@ -1131,7 +1131,7 @@ const tokens = {
   hps: {
     symbol: 'HPS',
     address: {
-      56: '0xeDa21B525Ac789EaB1a08ef2404dd8505FfB973D',
+      56: '0xc9D53A339F3c22E016C6fA1E3Eb85AC32c75fED2',
       97: '',
     },
     decimals: 18,
@@ -1281,6 +1281,23 @@ const tokens = {
     decimals: 9,
     projectLink: '',
   },
+  hpsv2: {
+    symbol: 'HPSv2',
+    address: {
+      56: '0xc9d53a339f3c22e016c6fa1e3eb85ac32c75fed2',
+      97: '',
+    },
+    decimals: 18,
+    projectLink: '',
+  },
+  catpay: {
+    symbol: 'CATPAY',
+    address: {
+      56: '0x0611686A2558de495617685b3Da12448657170FE',
+      97: '',
+    },
+    decimals: 9,
+    projectLink: '',
+  },
 }
-
 export default tokens

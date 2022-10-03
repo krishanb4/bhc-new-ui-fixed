@@ -216,6 +216,7 @@ const fetchFarms = async () => {
         tvlToken: tvlToken.toJSON(),
         tvlInUSD: tvlInUSD.toJSON(),
         apr: Number(apr.toJSON()).toFixed(4),
+        ended: farmConfig.pid === 34 ? true : Number(finishAt) < Date.now() / 1000 && Number(finishAt) !== 0,
         end: new BigNumber(finishAt).toJSON(),
       }
     }),
