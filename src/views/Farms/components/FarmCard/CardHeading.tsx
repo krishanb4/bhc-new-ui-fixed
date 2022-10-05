@@ -38,7 +38,7 @@ const CardHeading: React.FC<ExpandableSectionProps> = ({
       <Flex flexDirection="column" alignItems="flex-end">
         {/* <Heading mb="4px">{lpLabel.split(' ')[0]}</Heading> */}
         <Heading mb="4px">{lpLabel}</Heading>
-        <Text textAlign="right" fontSize="18px" color="#f88130">
+        <Text textAlign="right" fontSize="18px" color="#6681ca">
           {TranslateString(354, stakeNote)}
         </Text>
         <Flex justifyContent="center">

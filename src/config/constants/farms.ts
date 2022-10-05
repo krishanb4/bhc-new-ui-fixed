@@ -13,7 +13,7 @@ const farms: FarmConfig[] = [
       10001: '0x0c9f28fbdfd79f7c00b805d8c63d053c146d282c'
     },
     token: tokens.bhc,
-    quoteToken: tokens.wbnb,
+    quoteToken: tokens.wethw,
     farmAddress: '0x28d1F6698c20802B8c38Ae83903046F61e60F529',
     earn: 'BHC',
     buyURL: `https://app.lfgswap.finance/swap?outputCurrency=0x0c9f28FBdFd79f7C00B805d8c63D053c146d282c`,
@@ -34,10 +34,10 @@ const farms: FarmConfig[] = [
     lpAddresses: {
       97: '',
       56: '',
-      10001: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2'
+      10001: '0x7Bf88d2c0e32dE92CdaF2D43CcDc23e8Edfd5990'
     },
     token: tokens.bhc,
-    quoteToken: tokens.wbnb,
+    quoteToken: tokens.wethw,
     farmAddress: '0xF6Bd193550862C832B2AcAfEE0a670406b433642',
     earn: 'BHC',
     buyURL: `https://app.lfgswap.finance/swap?outputCurrency=0x0c9f28FBdFd79f7C00B805d8c63D053c146d282c`,
@@ -45,7 +45,7 @@ const farms: FarmConfig[] = [
     factor: 1,
     start: 'Opens in: 8 AM UTC 8/Oct/2022',
     ended: false,
-    isBNB: false,
+    isBNB: true,
     locked: false,
     info: `#`,
     category: 'emotional',
@@ -53,7 +53,7 @@ const farms: FarmConfig[] = [
   {
     farmName: 'BHC-ETHW  LP',
     image: 'bhc-ethw',
-    pid: 37,
+    pid: 3,
     lpSymbol: 'BHC-ETHW  LP',
     lpAddresses: {
       97: '',
@@ -61,7 +61,7 @@ const farms: FarmConfig[] = [
       10001: '0x899fED261A7df2761CF0b6f7556B80669D135802'
     },
     token: tokens.bhc,
-    quoteToken: tokens.wbnb,
+    quoteToken: tokens.wethw,
     farmAddress: '0xe3891B87204870FC26dE020fc9d92eA9848Df74f',
     earn: 'BHC',
     buyURL: `https://app.lfgswap.finance/swap?outputCurrency=0x0c9f28FBdFd79f7C00B805d8c63D053c146d282c`,

@@ -60,7 +60,7 @@ const StyledCardAccent = styled.div`
 
 const Label = styled.div`
   margin-top: 20px;
-  color: #f88130;
+  color: #6681ca;
   font-size: 25px;
   font-weight: 900;
 `
@@ -95,7 +95,7 @@ interface FarmCardProps {
   farm: FarmWithStakedValue
   removed: boolean
   cakePrice?: BigNumber
-  provider?: ProviderType
+  // provider?: ProviderType
   account?: string
 }
 

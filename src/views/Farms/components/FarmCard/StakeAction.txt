@@ -13,7 +13,7 @@ import WithdrawModal from '../WithdrawModal'
 
 const Label = styled.div`
   margin-top: 20px;
-  color: #f88130;
+  color: #6681ca;
   font-size: 12px;
   font-weight: 900;
 `
