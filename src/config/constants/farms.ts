@@ -34,7 +34,7 @@ const farms: FarmConfig[] = [
     },
     token: tokens.hpsv2,
     quoteToken: tokens.wbnb,
-    farmAddress: '0xe13F43F811Da9fcfcdE84Df706a96B961aA4C93c',
+    farmAddress: '0x2471E8c3ff39506CfaE00566e7E727d66A05F381',
     earn: 'HPSv2',
     buyURL: `https://app.apeswap.finance/swap?outputCurrency=${tokens.wirtual.address['56']}`,
     dualEarn: false,
