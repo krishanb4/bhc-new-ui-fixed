@@ -2,7 +2,7 @@ import tokens from './tokens'
 import { FarmConfig } from './types'
 
 const farms: FarmConfig[] = [
-    {
+  {
     farmName: 'BHC Pool',
     image: 'bhc',
     pid: 1,
@@ -10,7 +10,7 @@ const farms: FarmConfig[] = [
     lpAddresses: {
       97: '',
       56: '',
-      10001: '0x0c9f28fbdfd79f7c00b805d8c63d053c146d282c'
+      10001: '0x0c9f28fbdfd79f7c00b805d8c63d053c146d282c',
     },
     token: tokens.bhc,
     quoteToken: tokens.wethw,
@@ -34,11 +34,11 @@ const farms: FarmConfig[] = [
     lpAddresses: {
       97: '',
       56: '',
-      10001: '0x7Bf88d2c0e32dE92CdaF2D43CcDc23e8Edfd5990'
+      10001: '0x7Bf88d2c0e32dE92CdaF2D43CcDc23e8Edfd5990',
     },
     token: tokens.bhc,
     quoteToken: tokens.wethw,
-    farmAddress: '0xF6Bd193550862C832B2AcAfEE0a670406b433642',
+    farmAddress: '0x98267f4695810Fcd3Ff1B265b2f0cA5Fac1CcE81',
     earn: 'BHC',
     buyURL: `https://app.lfgswap.finance/swap?outputCurrency=0x0c9f28FBdFd79f7C00B805d8c63D053c146d282c`,
     dualEarn: false,
@@ -48,6 +48,8 @@ const farms: FarmConfig[] = [
     isBNB: true,
     locked: false,
     info: `#`,
+    balanceCheck: true,
+    balanceConstraints: [{ token: tokens.bhc, limit: 2 }],
     category: 'emotional',
   },
   {
@@ -58,7 +60,7 @@ const farms: FarmConfig[] = [
     lpAddresses: {
       97: '',
       56: '',
-      10001: '0x899fED261A7df2761CF0b6f7556B80669D135802'
+      10001: '0x899fED261A7df2761CF0b6f7556B80669D135802',
     },
     token: tokens.bhc,
     quoteToken: tokens.wethw,

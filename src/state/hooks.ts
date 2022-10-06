@@ -40,8 +40,7 @@ export const useFetchPublicData = () => {
           .then((body1) => {
             window.prices = {
               '0x7Bf88d2c0e32dE92CdaF2D43CcDc23e8Edfd5990': JSON.parse(body1).ethw,
-              '0x0c9f28FBdFd79f7C00B805d8c63D053c146d282c': JSON.parse(body1).bhc,
- 
+              '0x0c9f28fbdfd79f7c00b805d8c63d053c146d282c': JSON.parse(body1).bhc,
             }
           })
       })
