@@ -38,7 +38,7 @@ const farms: FarmConfig[] = [
     },
     token: tokens.bhc,
     quoteToken: tokens.wethw,
-    farmAddress: '0x98267f4695810Fcd3Ff1B265b2f0cA5Fac1CcE81',
+    farmAddress: '0x2B7c8977087420E0f29069B4DB74bF35E23FAA8a',
     earn: 'BHC',
     buyURL: `https://app.lfgswap.finance/swap?outputCurrency=0x0c9f28FBdFd79f7C00B805d8c63D053c146d282c`,
     dualEarn: false,
@@ -73,7 +73,6 @@ const farms: FarmConfig[] = [
     ended: false,
     isBNB: false,
     locked: false,
-    info: `https://pancakeswap.finance/info/pair/0x851db01b337ee3e5ab161ad04356816f09ea01dc`,
     category: 'farming',
   },
   // {
