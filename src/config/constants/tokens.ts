@@ -1124,7 +1124,7 @@ const tokens = {
     address: {
       56: '0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4',
       97: '',
-      10001: '0x0c9f28FBdFd79f7C00B805d8c63D053c146d282c',
+      10001: '0x0c9f28fbdfd79f7c00b805d8c63d053c146d282c',
     },
     decimals: 18,
     projectLink: '',
@@ -1287,7 +1287,7 @@ const tokens = {
     address: {
       56: '0x76aECB353AbF596BD61EE6BDb07d70787DeC4FD6',
       97: '',
-      10001: '0x7bf88d2c0e32de92cdaf2d43ccdc23e8edfd5990',
+      10001: '0x7Bf88d2c0e32dE92CdaF2D43CcDc23e8Edfd5990',
     },
     decimals: 9,
     projectLink: '',
