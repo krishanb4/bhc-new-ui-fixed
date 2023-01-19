@@ -28,7 +28,7 @@ interface balanceConstraints {
 
 interface FarmCardActionsProps {
   farm: FarmWithStakedValue
-  provider?: ProviderType
+  // provider?: ProviderType
   account?: string
   addLiquidityUrl?: string
   endLabel?: string
@@ -56,9 +56,8 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, account, addLiquidi
       if (balanceConstraints[i].limit > Number(constraintBalances[i]) / 10 ** 18) {
         constraints.stakeFulfilled = false
         constraints.withdrawFulfilled = false
-        constraints.msg = `${constraints.msg !== '' ? `${constraints.msg}, ` : ''}${
-          balanceConstraints[i].token.symbol
-        } balance must be greater than ${balanceConstraints[i].limit}`
+        constraints.msg = `${constraints.msg !== '' ? `${constraints.msg}, ` : ''}${balanceConstraints[i].token.symbol
+          } balance must be greater than ${balanceConstraints[i].limit}`
       }
     }
   }
@@ -66,9 +65,8 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, account, addLiquidi
   if (limitCheck) {
     if (limit <= Number(stakedBalance) / 10 ** 18) {
       constraints.stakeFulfilled = false
-      constraints.msg = `${
-        constraints.msg !== '' ? `${constraints.msg}, ` : ''
-      }Can't stake more than ${limit} ${lpSymbol}.`
+      constraints.msg = `${constraints.msg !== '' ? `${constraints.msg}, ` : ''
+        }Can't stake more than ${limit} ${lpSymbol}.`
     }
     limitedBalance = new BigNumber(limit).multipliedBy(10 ** 18).minus(stakedBalance)
     if (limitedBalance.isGreaterThan(tokenBalance)) {
