@@ -34,7 +34,7 @@ const farms: FarmConfig[] = [
     },
     token: tokens.hpsv2,
     quoteToken: tokens.wbnb,
-    farmAddress: '0x60951c95C28a2d0c314c070bF079E7942f15CFc4',
+    farmAddress: '0xA37F08b6a70a189F833d519938B0dFb47E7b204b',
     earn: 'HPSv2',
     buyURL: `https://pancakeswap.finance/add/${tokens.hpsv2.address['56']}/BNB`,
     dualEarn: false,
