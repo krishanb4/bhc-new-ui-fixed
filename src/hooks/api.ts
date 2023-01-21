@@ -25,7 +25,7 @@ export const useGetStats = () => {
         const responsedata: ApiTvlResponse = await response.json()
 
         setData(responsedata)
-      } catch (error) {
+      } catch (error: any) {
         // console.error('Unable to fetch data:', error)
       }
     }

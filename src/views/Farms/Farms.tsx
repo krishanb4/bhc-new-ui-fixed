@@ -95,7 +95,7 @@ const Farms: React.FC<FarmsInterface> = ({ title, subTitle, type }) => {
         <Route exact path={`${path}`}>
           {getFarms().map((farm) =>
             !farm.ended ? (
-              <Grid item xs={12} sm={6} md={4}>
+              <Grid item xs={12} sm={6} md={4} key={farm.pid}>
                 <FarmCard key={farm.pid} farm={farm} cakePrice={cakePrice} account={account} removed={false} />
               </Grid>
             ) : (
@@ -106,7 +106,7 @@ const Farms: React.FC<FarmsInterface> = ({ title, subTitle, type }) => {
         <Route exact path={`${path}/history`}>
           {getFarms().map((farm) =>
             farm.ended ? (
-              <Grid item xs={12} sm={6} md={4}>
+              <Grid item xs={12} sm={6} md={4} key={farm.pid}>
                 <FarmCard key={farm.pid} farm={farm} cakePrice={cakePrice} account={account} removed />
               </Grid>
             ) : (

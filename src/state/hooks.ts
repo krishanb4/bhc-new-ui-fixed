@@ -66,6 +66,7 @@ export const useFetchPublicData = () => {
               '0xa19d3f4219e2ed6dc1cb595db20f70b8b6866734': JSON.parse(body1).wirtual, //  WIRTUAL'
               '0xc9d53a339f3c22e016c6fa1e3eb85ac32c75fed2': JSON.parse(body1).hpsv2, // HPSv2
               '0x0611686A2558de495617685b3Da12448657170FE': JSON.parse(body1).catpay, // CATPAY
+              '0x16C21c642E58F5D000261ba94EEdf2F221b8958e': JSON.parse(body).pcs_hpsbnb_one_lp_value, // HPS-BNB Pancake
             }
           })
       })

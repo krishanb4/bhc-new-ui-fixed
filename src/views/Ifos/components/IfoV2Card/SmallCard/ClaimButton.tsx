@@ -25,7 +25,7 @@ const ClaimButton: React.FC<Props> = ({ poolId, walletIfoData }) => {
       await walletIfoData.contract.methods.harvestPool(poolId === PoolIds.poolBasic ? 0 : 1).send({ from: account })
       walletIfoData.setIsClaimed(poolId)
       toastSuccess('Success!', 'You have successfully claimed your rewards.')
-    } catch (error) {
+    } catch (error: any) {
       toastError('Error', error?.message)
       // console.error(error)
     } finally {

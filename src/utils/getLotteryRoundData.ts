@@ -28,8 +28,8 @@ const getLotteryRoundData = async (lotteryNumber: number): Promise<DataResponse>
     const data = await response.json()
 
     return data
-  } catch (error) {
-    throw new Error(error)
+  } catch (error: any) {
+    throw new Error(<string>error)
   }
 }
 
