@@ -203,6 +203,15 @@ const fetchFarms = async () => {
       const allocPoint = new BigNumber(0) // (info.allocPoint._hex)
       const poolWeight = allocPoint.div(new BigNumber(/* totalAllocPoint */ 0))
 
+      let ended = false
+      if (farmConfig.pid === 43 || farmConfig.pid === 42) {
+        ended = false
+      } else if (farmConfig.pid === 34) {
+        ended = true
+      } else {
+        ended = Number(finishAt) < Date.now() / 1000 && Number(finishAt) !== 0
+      }
+
       return {
         ...farmConfig,
         tokenAmount: tokenAmount.toJSON(),
@@ -216,7 +225,7 @@ const fetchFarms = async () => {
         tvlToken: tvlToken.toJSON(),
         tvlInUSD: tvlInUSD.toJSON(),
         apr: Number(apr.toJSON()).toFixed(4),
-        ended: farmConfig.pid === 34 ? true : Number(finishAt) < Date.now() / 1000 && Number(finishAt) !== 0,
+        ended,
         end: new BigNumber(finishAt).toJSON(),
       }
     }),

@@ -31,7 +31,6 @@ interface FarmCardProps {
 let counter = 0
 
 const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, account }) => {
-
   counter += 1
 
   const TranslateString = useI18n()
@@ -71,14 +70,17 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, account }
 
   // // console.log(earnLabel)
 
-  const dayCount = Math.round((farmData.end - Math.floor(Date.now() / 1000)) / 60 / 60 / 24)
+  const timeDif = (farmData.end - Math.floor(Date.now() / 1000)) / 60 / 60 / 24
+  const d = Math.round((farmData.end - Math.floor(Date.now() / 1000)) / 60 / 60 / 24)
+  const h = Math.round((farmData.end - Math.floor(Date.now() / 1000)) / 60 / 60) - d * 24
+  const m = Math.round((farmData.end - Math.floor(Date.now() / 1000)) / 60) - d * 24 * 60 - h * 60
   let endLabel = ''
-  if (dayCount > 0) {
-    endLabel = `Ends in: ${dayCount} Days`
+  if (timeDif > 0) {
+    endLabel = `Ends in: ${d} Days ${h} Hours ${m} Mins`
     if (farmData.pid === 15) {
       endLabel = ''
     }
-  } else if (dayCount <= 0) {
+  } else if (timeDif <= 0) {
     if (Number(farmData.end) !== 0) {
       endLabel = 'Ended'
     } else {
@@ -91,7 +93,6 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, account }
 
   return (
     <FCard>
-
       <CardHeading
         lpLabel={farm.farmName}
         stakeNote={farm.stakeNote}
@@ -151,7 +152,5 @@ const ExpandingWrapper = styled.div<{ expanded: boolean }>`
   height: ${(props) => (props.expanded ? '100%' : '0px')};
   overflow: hidden;
 `
-
-
 
 export default FarmCard
