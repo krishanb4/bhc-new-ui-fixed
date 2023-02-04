@@ -82,7 +82,7 @@ const farms: FarmConfig[] = [
     earn: 'HPS',
     buyURL: `https://app.apeswap.finance/swap?outputCurrency=${tokens.bhc.address['56']}`,
     dualEarn: false,
-    factor: 3.8,
+    factor: 1,
     start: 'Opens in: 8 AM UTC 20/April/2022',
     ended: false,
     isBNB: false,
